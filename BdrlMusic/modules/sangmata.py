@@ -23,7 +23,7 @@ async def _(_, message: Message):
         return await lol.edit(
             "<code>Reply Ke Pesan User Yang Kau Pengen KEPOIN ngentot.</code>"
         )
-    bot = "SangMataInfo_bot"
+    bot = "SangMata_beta_bot"
     try:
         txt = await _.send_message(bot, f"/search_id {user.id}")
     except YouBlockedUser:
