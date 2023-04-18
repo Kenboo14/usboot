@@ -121,19 +121,19 @@ async def _(client, message):
 async def _(client, inline_query):
     button = [
         [
-            InlineKeyboardButton("GLOBAL", callback_data="admin admin_gban"),
-            InlineKeyboardButton("KANG", callback_data="sticker sticker_kang"),
+            InlineKeyboardButton("Globals", callback_data="admin admin_gban"),
+            InlineKeyboardButton("Kangcut", callback_data="sticker sticker_kang"),
         ],
         [
-            InlineKeyboardButton("MEMIFY", callback_data="sticker sticker_memify"),
-            InlineKeyboardButton("MAMES", callback_data="sticker sticker_memes"),
+            InlineKeyboardButton("Memify", callback_data="sticker sticker_memify"),
+            InlineKeyboardButton("Memes", callback_data="sticker sticker_memes"),
         ],
         [
-            InlineKeyboardButton("QUOTLY", callback_data="sticker sticker_quotly"),
-            InlineKeyboardButton("RESTRICT", callback_data="admin admin_restrict"),
+            InlineKeyboardButton("Quotly", callback_data="sticker sticker_quotly"),
+            InlineKeyboardButton("Restrict", callback_data="admin admin_restrict"),
         ],
         [
-            InlineKeyboardButton("TINY", callback_data="sticker sticker_tiny"),
+            InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -158,7 +158,7 @@ async def _(client, callback_query):
         if callback_query.from_user.id == my.me.id:
             data = callback_query.data.split()[1]
             button = [
-                [InlineKeyboardButton("• KEMBALI •", callback_data="admin admin_back")]
+                [InlineKeyboardButton("• Mbalik •", callback_data="admin admin_back")]
             ]
             if data == "admin_gban":
                 msg = help_admin[0]
@@ -168,31 +168,31 @@ async def _(client, callback_query):
                 button = [
                     [
                         InlineKeyboardButton(
-                            "GLOBAL", callback_data="admin admin_gban"
+                            "Globals", callback_data="admin admin_gban"
                         ),
                         InlineKeyboardButton(
-                            "KANG", callback_data="sticker sticker_kang"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "MEMIFY", callback_data="sticker sticker_memify"
-                        ),
-                        InlineKeyboardButton(
-                            "MAMES", callback_data="sticker sticker_memes"
+                            "Kangcut", callback_data="sticker sticker_kang"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            "QUOTLY", callback_data="sticker sticker_quotly"
+                            "Memify", callback_data="sticker sticker_memify"
                         ),
                         InlineKeyboardButton(
-                            "RESTRICT", callback_data="admin admin_restrict"
+                            "Memes", callback_data="sticker sticker_memes"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            "TINY", callback_data="sticker sticker_tiny"
+                            "Quotly", callback_data="sticker sticker_quotly"
+                        ),
+                        InlineKeyboardButton(
+                            "Restrict", callback_data="admin admin_restrict"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "Tiny", callback_data="sticker sticker_tiny"
                         ),
                     ],
                 ]
@@ -210,7 +210,7 @@ async def _(client, callback_query):
             button = [
                 [
                     InlineKeyboardButton(
-                        "• KEMBALI •", callback_data="sticker sticker_back"
+                        "• Mbalik •", callback_data="sticker sticker_back"
                     )
                 ]
             ]
@@ -228,31 +228,31 @@ async def _(client, callback_query):
                 button = [
                     [
                         InlineKeyboardButton(
-                            "GLOBAL", callback_data="admin admin_gban"
+                            "Globals", callback_data="admin admin_gban"
                         ),
                         InlineKeyboardButton(
-                            "KANG", callback_data="sticker sticker_kang"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "MEMIFY", callback_data="sticker sticker_memify"
-                        ),
-                        InlineKeyboardButton(
-                            "MAMES", callback_data="sticker sticker_memes"
+                            "Kangcut", callback_data="sticker sticker_kang"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            "QUOTLY", callback_data="sticker sticker_quotly"
+                            "Memify", callback_data="sticker sticker_memify"
                         ),
                         InlineKeyboardButton(
-                            "RESTRICT", callback_data="admin admin_restrict"
+                            "Memes", callback_data="sticker sticker_memes"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            "TINY", callback_data="sticker sticker_tiny"
+                            "Quotly", callback_data="sticker sticker_quotly"
+                        ),
+                        InlineKeyboardButton(
+                            "Restrict", callback_data="admin admin_restrict"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "Tiny", callback_data="sticker sticker_tiny"
                         ),
                     ],
                 ]
