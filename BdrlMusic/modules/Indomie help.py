@@ -133,6 +133,7 @@ help_text = {
     "tiny": help_sticker[4],
     "limit": help_limit[0],
     "play": help_play[0],
+    "play": help_play[1],
 }
 
 
@@ -166,7 +167,7 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play_yt"),
+            InlineKeyboardButton("Play", callback_data="play play"),
         ],
         [
             InlineKeyboardButton(">", callback_data="next next_nih"),
@@ -217,7 +218,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play_yt"),
+            InlineKeyboardButton("Play", callback_data="play play"),
         ],
         [
             InlineKeyboardButton(">", callback_data="next next_nih"),
@@ -268,7 +269,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play_yt"),
+            InlineKeyboardButton("Play", callback_data="play play"),
         ],
         [
             InlineKeyboardButton(">", callback_data="next next_nih"),
@@ -288,9 +289,9 @@ async def _(client, callback_query):
                 [InlineKeyboardButton("• Mbalik •", callback_data="play play_back")]
             ]
             if data == "play":
-                msg = help_admin[0]
+                msg = help_play[0]
             if data == "play":
-                msg = help_admin[1]
+                msg = help_play[1]
             if data == "play_back":
                 button = [
                     [
@@ -307,7 +308,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play_yt"),
+            InlineKeyboardButton("Play", callback_data="play play"),
         ],
         [
             InlineKeyboardButton(">", callback_data="next next_nih"),
