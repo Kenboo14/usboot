@@ -47,6 +47,16 @@ Penjelasan:
            Untuk melepas pembisuan anggota dari grup</b>
 """,
 ]
+help_next = [
+    f"""<b>Haloo</b>
+    
+    """,
+]
+help_next = [
+    f"""<b>Haloo</b>
+    
+    """,
+]
 help_limit = [
     f"""<b>HELP LIMIT 
     
