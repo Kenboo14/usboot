@@ -117,7 +117,6 @@ help_text = {
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
     "limit": help_limit[5],
-    "gcast": help_gcast[6],
 }
 
 
