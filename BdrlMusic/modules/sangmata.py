@@ -25,10 +25,10 @@ async def _(_, message: Message):
         )
     bot = "SangMata_beta_bot"
     try:
-        txt = await _.send_message(bot, f"/search_id {user.id}")
+        txt = await _.send_message(bot, f"{user.id}")
     except YouBlockedUser:
         await _.unblock_user(bot)
-        txt = await _.send_message(bot, f"/search_id {user.id}")
+        txt = await _.send_message(bot, f"{user.id}")
     await asyncio.sleep(1)
     await txt.delete()
     await lol.delete()
