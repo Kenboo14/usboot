@@ -288,9 +288,7 @@ async def _(client, callback_query):
                 [InlineKeyboardButton("• Mbalik •", callback_data="play play_back")]
             ]
             if data == "play":
-                msg = help_play[0]
-            if data == "play":
-                msg = help_play[1]    
+                msg = help_play[0]   
             if data == "play_back":
                 button = [
                     [
