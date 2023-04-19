@@ -166,7 +166,7 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play"),
+            InlineKeyboardButton("Play", callback_data="play play"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -217,7 +217,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play"),
+            InlineKeyboardButton("Play", callback_data="play play"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -268,7 +268,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play"),
+            InlineKeyboardButton("Play", callback_data="play play"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -307,7 +307,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play"),
+            InlineKeyboardButton("Play", callback_data="play play"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
