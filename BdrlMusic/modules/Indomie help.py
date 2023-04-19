@@ -133,7 +133,6 @@ help_text = {
     "tiny": help_sticker[4],
     "limit": help_limit[0],
     "play": help_play[0],
-    "video": help_play[1],
 }
 
 
