@@ -52,7 +52,7 @@ help_next = [
     
     """,
 ]
-help_next = [
+help_previous = [
     f"""<b>Haloo</b>
     
     """,
@@ -133,8 +133,6 @@ help_text = {
     "tiny": help_sticker[4],
     "limit": help_limit[0],
     "play": help_play[0],
-    "next" : help_next[0],
-    "previous" : help_previous[0],
 }
 
 
