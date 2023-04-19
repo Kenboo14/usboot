@@ -47,6 +47,26 @@ Penjelasan:
            Untuk melepas pembisuan anggota dari grup</b>
 """,
 ]
+help_limit = [
+    f"""<b>HELP LIMIT 
+    
+Perintah:
+        <code>{PREFIXES[0]}limit</code> [Burung Puyuh]
+Penjelasan:
+        Gaada penjelasan, pasti kalian udh tau kan panteq?
+        <b> kau ketik aja </b> <code>{PREFIXES[0]}limit</code> nanti juga bisa cok!</b>
+    """,
+
+]
+help_play = [
+   f"""<b>HELP PLAY
+    
+Perintah:
+        <code>{PREFIXES[0]}play</code> [Judul lagu]
+Penjelasan:
+        Silahkan ketik <code>{PREFIXES[0]}play</code> beserta judul lagu</b>
+    """,
+]
 
 help_sticker = [
     f"""<b>HELP STICKER KANG
@@ -101,6 +121,10 @@ help_text = {
     "memes": help_sticker[2],
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
+    "limit": help_limit[0],
+    "play": help_play[0],
+    "next" : help_next[0],
+    "previous" : help_previous[0],
 }
 
 
@@ -134,9 +158,14 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
+            InlineKeyboardButton("Play", callback_data="play play_yt"),
+        ],
+        [
+            InlineKeyboardButton(">", callback_data="next next_nih"),
+            InlineKeyboardButton("<", callback_data="previous previous_nih"),
         ],
     ]
-    msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+    msg = "<b>HELP MENU OPEN\nPREFIXES: <code>NothingBot</code></b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -166,35 +195,26 @@ async def _(client, callback_query):
                 msg = help_admin[1]
             if data == "admin_back":
                 button = [
-                    [
-                        InlineKeyboardButton(
-                            "Globals", callback_data="admin admin_gban"
-                        ),
-                        InlineKeyboardButton(
-                            "Kangcut", callback_data="sticker sticker_kang"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Memify", callback_data="sticker sticker_memify"
-                        ),
-                        InlineKeyboardButton(
-                            "Memes", callback_data="sticker sticker_memes"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Quotly", callback_data="sticker sticker_quotly"
-                        ),
-                        InlineKeyboardButton(
-                            "Restrict", callback_data="admin admin_restrict"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Tiny", callback_data="sticker sticker_tiny"
-                        ),
-                    ],
+        [
+            InlineKeyboardButton("Globals", callback_data="admin admin_gban"),
+            InlineKeyboardButton("Kangcut", callback_data="sticker sticker_kang"),
+        ],
+        [
+            InlineKeyboardButton("Memify", callback_data="sticker sticker_memify"),
+            InlineKeyboardButton("Memes", callback_data="sticker sticker_memes"),
+        ],
+        [
+            InlineKeyboardButton("Quotly", callback_data="sticker sticker_quotly"),
+            InlineKeyboardButton("Restrict", callback_data="admin admin_restrict"),
+        ],
+        [
+            InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
+            InlineKeyboardButton("Play", callback_data="play play_yt"),
+        ],
+        [
+            InlineKeyboardButton(">", callback_data="next next_nih"),
+            InlineKeyboardButton("<", callback_data="previous previous_nih"),
+        ],
                 ]
                 msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
@@ -227,36 +247,67 @@ async def _(client, callback_query):
             if data == "sticker_back":
                 button = [
                     [
-                        InlineKeyboardButton(
-                            "Globals", callback_data="admin admin_gban"
-                        ),
-                        InlineKeyboardButton(
-                            "Kangcut", callback_data="sticker sticker_kang"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Memify", callback_data="sticker sticker_memify"
-                        ),
-                        InlineKeyboardButton(
-                            "Memes", callback_data="sticker sticker_memes"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Quotly", callback_data="sticker sticker_quotly"
-                        ),
-                        InlineKeyboardButton(
-                            "Restrict", callback_data="admin admin_restrict"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "Tiny", callback_data="sticker sticker_tiny"
-                        ),
-                    ],
+            InlineKeyboardButton("Globals", callback_data="admin admin_gban"),
+            InlineKeyboardButton("Kangcut", callback_data="sticker sticker_kang"),
+        ],
+        [
+            InlineKeyboardButton("Memify", callback_data="sticker sticker_memify"),
+            InlineKeyboardButton("Memes", callback_data="sticker sticker_memes"),
+        ],
+        [
+            InlineKeyboardButton("Quotly", callback_data="sticker sticker_quotly"),
+            InlineKeyboardButton("Restrict", callback_data="admin admin_restrict"),
+        ],
+        [
+            InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
+            InlineKeyboardButton("Play", callback_data="play play_yt"),
+        ],
+        [
+            InlineKeyboardButton(">", callback_data="next next_nih"),
+            InlineKeyboardButton("<", callback_data="previous previous_nih"),
+        ],
                 ]
                 msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
+@bot.on_callback_query(filters.regex("^play"))
+async def _(client, callback_query):
+    for my in ubot._ubot:
+        if callback_query.from_user.id == my.me.id:
+            data = callback_query.data.split()[1]
+            button = [
+                [InlineKeyboardButton("• Mbalik •", callback_data="play play_back")]
+            ]
+            if data == "play":
+                msg = help_admin[0]
+            if data == "play":
+                msg = help_admin[1]
+            if data == "play_back":
+                button = [
+                    [
+            InlineKeyboardButton("Globals", callback_data="admin admin_gban"),
+            InlineKeyboardButton("Kangcut", callback_data="sticker sticker_kang"),
+        ],
+        [
+            InlineKeyboardButton("Memify", callback_data="sticker sticker_memify"),
+            InlineKeyboardButton("Memes", callback_data="sticker sticker_memes"),
+        ],
+        [
+            InlineKeyboardButton("Quotly", callback_data="sticker sticker_quotly"),
+            InlineKeyboardButton("Restrict", callback_data="admin admin_restrict"),
+        ],
+        [
+            InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
+            InlineKeyboardButton("Play", callback_data="play play_yt"),
+        ],
+        [
+            InlineKeyboardButton(">", callback_data="next next_nih"),
+            InlineKeyboardButton("<", callback_data="previous previous_nih"),
+        ],
+                ]
+                msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+            await callback_query.edit_message_text(
+                msg, reply_markup=InlineKeyboardMarkup(button)
+            )
+
