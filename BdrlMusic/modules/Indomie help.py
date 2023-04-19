@@ -57,6 +57,12 @@ help_limit = [
     
     """,
 ]
+help_gcast = [
+    f"""<b>HELP MENU
+    
+    Halooo co-exist loverss</b>
+    """,
+]
 help_sticker = [
     f"""<b>HELP STICKER KANG
 
@@ -111,6 +117,7 @@ help_text = {
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
     "limit": help_limit[5],
+    "gcast": help_gcast[6],
 }
 
 
@@ -145,6 +152,10 @@ async def _(client, inline_query):
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
             InlineKeyboardButton("Limit", callback_data="limit limit"),
+        ],
+        [
+            InlineKeyboardButton("<<", callback_data="next"),
+            InlineKeyboardButton(">>", callback_data="prev"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
