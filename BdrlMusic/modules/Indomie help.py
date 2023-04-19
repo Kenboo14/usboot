@@ -147,7 +147,7 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("TINY", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("LIMIT", callback_data="limit limit"),
+            InlineKeyboardButton("LIMIT", callback_data="limit limited"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -209,7 +209,7 @@ async def _(client, callback_query):
                             "TINY", callback_data="sticker sticker_tiny"
                         ),
                         InlineKeyboardButton(
-                            "LIMIT", callback_data="limit limit"
+                            "LIMIT", callback_data="limit limited"
                         ),
                     ],
                 ]
@@ -241,7 +241,7 @@ async def _(client, callback_query):
                 msg = help_sticker[3]
             if data == "sticker_tiny":
                 msg = help_sticker[4]
-            if data == "limit":
+            if data == "limited":
                 msg = help_limit[5]
             if data == "sticker_back":
                 button = [
@@ -274,7 +274,7 @@ async def _(client, callback_query):
                             "TINY", callback_data="sticker sticker_tiny"
                         ),
                         InlineKeyboardButton(
-                            "LIMIT", callback_data="limit limit"
+                            "LIMIT", callback_data="limit limited"
                         ),
                     ],
                 ]
