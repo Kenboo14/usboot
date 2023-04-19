@@ -287,9 +287,9 @@ async def _(client, callback_query):
             button = [
                 [InlineKeyboardButton("• Mbalik •", callback_data="play limit_back")]
             ]
-            if data == "limit":
-                msg = help_play[1]   
-            if data == "play_back":
+            if data == "limited":
+                msg = help_limit[1]   
+            if data == "limit_back":
                 button = [
                     [
             InlineKeyboardButton("Globals", callback_data="admin admin_gban"),
