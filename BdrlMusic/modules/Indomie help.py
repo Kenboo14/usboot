@@ -133,7 +133,6 @@ help_text = {
     "tiny": help_sticker[4],
     "limit": help_limit[0],
     "play": help_play[0],
-    "play": help_play[1],
 }
 
 
@@ -167,11 +166,11 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play"),
+            InlineKeyboardButton("Play", callback_data="play play_yt"),
         ],
         [
-            InlineKeyboardButton(">", callback_data="next next_nih"),
-            InlineKeyboardButton("<", callback_data="previous previous_nih"),
+            InlineKeyboardButton("<", callback_data="next next_nih"),
+            InlineKeyboardButton(">", callback_data="previous previous_nih"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>NothingBot</code></b>"
@@ -218,11 +217,11 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play"),
+            InlineKeyboardButton("Play", callback_data="play play_yt"),
         ],
         [
-            InlineKeyboardButton(">", callback_data="next next_nih"),
-            InlineKeyboardButton("<", callback_data="previous previous_nih"),
+            InlineKeyboardButton("<", callback_data="next next_nih"),
+            InlineKeyboardButton(">", callback_data="previous previous_nih"),
         ],
                 ]
                 msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -269,11 +268,11 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play"),
+            InlineKeyboardButton("Play", callback_data="play play_yt"),
         ],
         [
-            InlineKeyboardButton(">", callback_data="next next_nih"),
-            InlineKeyboardButton("<", callback_data="previous previous_nih"),
+            InlineKeyboardButton("<", callback_data="next next_nih"),
+            InlineKeyboardButton(">", callback_data="previous previous_nih"),
         ],
                 ]
                 msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -288,10 +287,8 @@ async def _(client, callback_query):
             button = [
                 [InlineKeyboardButton("• Mbalik •", callback_data="play play_back")]
             ]
-            if data == "play":
+            if data == "play_yt":
                 msg = help_play[0]
-            if data == "play":
-                msg = help_play[1]
             if data == "play_back":
                 button = [
                     [
@@ -308,11 +305,11 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play"),
+            InlineKeyboardButton("Play", callback_data="play play_yt"),
         ],
         [
-            InlineKeyboardButton(">", callback_data="next next_nih"),
-            InlineKeyboardButton("<", callback_data="previous previous_nih"),
+            InlineKeyboardButton("<", callback_data="next next_nih"),
+            InlineKeyboardButton(">", callback_data="previous previous_nih"),
         ],
                 ]
                 msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
