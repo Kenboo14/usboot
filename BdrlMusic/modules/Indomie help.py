@@ -116,7 +116,6 @@ help_text = {
     "memes": help_sticker[2],
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
-    "limit": help_limit[5],
 }
 
 
