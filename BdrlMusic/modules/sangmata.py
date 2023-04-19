@@ -13,7 +13,7 @@ from config import PREFIXES
 async def _(_, message: Message):
     args = await extract_users(message)
     lol = await message.reply(
-        "<code>LU SIAPA SI KENTOT, GUA KEPO, GA SENENG PC!!</code>"
+        "<code>Anda Siapa? Apakah Anda Anggota PDIP?</code>"
     )
     if not args:
         return await lol.edit("<b>user tidak ditemukan</b>")
