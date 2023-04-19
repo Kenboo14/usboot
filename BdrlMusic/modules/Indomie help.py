@@ -146,10 +146,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
             InlineKeyboardButton("Limit", callback_data="limit limit"),
         ],
-        [
-            InlineKeyboardButton("<<", callback_data="next"),
-            InlineKeyboardButton(">>", callback_data="prev"),
-        ],
+        
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
     await client.answer_inline_query(
