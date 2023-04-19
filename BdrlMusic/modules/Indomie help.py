@@ -48,6 +48,17 @@ Penjelasan:
 """,
 ]
 
+help_limit = [
+    f"""<b>HELP LIMIT
+
+Perintah:
+         <code>{PREFIXES[0]}limit</code> [ketik aja limit]
+Penjelasan:
+         Gaperlu gw jelasin lupasati udhbtau ini fungsi apa</b>
+    """,
+
+]
+
 help_sticker = [
     f"""<b>HELP STICKER KANG
 
@@ -101,6 +112,7 @@ help_text = {
     "memes": help_sticker[2],
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
+    "limit": help_limit[5],
 }
 
 
@@ -134,6 +146,7 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("TINY", callback_data="sticker sticker_tiny"),
+            InlineKeyboardButton("LIMIT", callback_data="sticker sticker_tiny"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -187,12 +200,15 @@ async def _(client, callback_query):
                             "QUOTLY", callback_data="sticker sticker_quotly"
                         ),
                         InlineKeyboardButton(
-                            "RESTRICT", callback_data="admin admin_restrict"
+                            "ADMIN", callback_data="admin admin_restrict"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
                             "TINY", callback_data="sticker sticker_tiny"
+                        ),
+                        InlineKeyboardButton(
+                            "LIMIT", callback_data="limit limit"
                         ),
                     ],
                 ]
@@ -224,6 +240,8 @@ async def _(client, callback_query):
                 msg = help_sticker[3]
             if data == "sticker_tiny":
                 msg = help_sticker[4]
+            if data == "limit":
+                msg = help_limit[5]
             if data == "sticker_back":
                 button = [
                     [
@@ -247,12 +265,15 @@ async def _(client, callback_query):
                             "QUOTLY", callback_data="sticker sticker_quotly"
                         ),
                         InlineKeyboardButton(
-                            "RESTRICT", callback_data="admin admin_restrict"
+                            "ADMIN", callback_data="admin admin_restrict"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
                             "TINY", callback_data="sticker sticker_tiny"
+                        ),
+                        InlineKeyboardButton(
+                            "LIMIT", callback_data="limit limit"
                         ),
                     ],
                 ]
