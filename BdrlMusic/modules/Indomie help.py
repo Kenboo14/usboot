@@ -166,7 +166,7 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play"),
+            InlineKeyboardButton("Limit", callback_data="limit limited"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -217,7 +217,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play"),
+            InlineKeyboardButton("Limit", callback_data="limit limited"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -268,7 +268,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play"),
+            InlineKeyboardButton("Limit", callback_data="limit limited"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -279,16 +279,16 @@ async def _(client, callback_query):
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
-@bot.on_callback_query(filters.regex("^play"))
+@bot.on_callback_query(filters.regex("^limit"))
 async def _(client, callback_query):
     for my in ubot._ubot:
         if callback_query.from_user.id == my.me.id:
             data = callback_query.data.split()[1]
             button = [
-                [InlineKeyboardButton("• Mbalik •", callback_data="play play_back")]
+                [InlineKeyboardButton("• Mbalik •", callback_data="play limit_back")]
             ]
-            if data == "play":
-                msg = help_play[0]   
+            if data == "limit":
+                msg = help_play[1]   
             if data == "play_back":
                 button = [
                     [
@@ -305,7 +305,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Play", callback_data="play play"),
+            InlineKeyboardButton("Limit", callback_data="limit limited"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
