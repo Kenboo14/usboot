@@ -166,7 +166,7 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Limit", callback_data="limit limited"),
+            InlineKeyboardButton("Limit", callback_data="limit limit"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -217,7 +217,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Limit", callback_data="limit limited"),
+            InlineKeyboardButton("Limit", callback_data="limit limit"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -268,7 +268,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Limit", callback_data="limit limited"),
+            InlineKeyboardButton("Limit", callback_data="limit limit"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
@@ -285,10 +285,10 @@ async def _(client, callback_query):
         if callback_query.from_user.id == my.me.id:
             data = callback_query.data.split()[1]
             button = [
-                [InlineKeyboardButton("• Mbalik •", callback_data="play limit_back")]
+                [InlineKeyboardButton("• Mbalik •", callback_data="limit limit_back")]
             ]
-            if data == "limited":
-                msg = help_limit[1]   
+            if data == "limit":
+                msg = help_limit[0]   
             if data == "limit_back":
                 button = [
                     [
@@ -305,7 +305,7 @@ async def _(client, callback_query):
         ],
         [
             InlineKeyboardButton("Tiny", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("Limit", callback_data="limit limited"),
+            InlineKeyboardButton("Limit", callback_data="limit limit"),
         ],
         [
             InlineKeyboardButton("<", callback_data="next next_nih"),
