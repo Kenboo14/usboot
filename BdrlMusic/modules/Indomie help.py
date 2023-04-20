@@ -117,8 +117,8 @@ help_text = {
     "memes": help_sticker[2],
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
-    "limit": help_limit[0],
-    "play": help_limit[1],
+    "limit": help_sticker[5],
+    "play": help_sticker[6],
  
 }
 
@@ -255,67 +255,11 @@ async def _(client, callback_query):
                 msg = help_sticker[3]
             if data == "sticker_tiny":
                 msg = help_sticker[4]
-            if data == "sticker_back":
-                button = [
-                    [
-                        InlineKeyboardButton(
-                            "GLOBAL", callback_data="admin admin_gban"
-                        ),
-                        InlineKeyboardButton(
-                            "KANG", callback_data="sticker sticker_kang"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "MEMIFY", callback_data="sticker sticker_memify"
-                        ),
-                        InlineKeyboardButton(
-                            "MAMES", callback_data="sticker sticker_memes"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "QUOTLY", callback_data="sticker sticker_quotly"
-                        ),
-                        InlineKeyboardButton(
-                            "ADMIN", callback_data="admin admin_restrict"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "TINY", callback_data="sticker sticker_tiny"
-                        ),
-                        InlineKeyboardButton(
-                            "LIMIT", callback_data="limit"
-                        ),      
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "PLAY", callback_data="play"
-                        ),
-                    ],
-                ]
-                msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
-            await callback_query.edit_message_text(
-                msg, reply_markup=InlineKeyboardMarkup(button)
-            )
-@bot.on_callback_query(filters.regex("^limit"))
-async def _(client, callback_query):
-    for my in ubot._ubot:
-        if callback_query.from_user.id == my.me.id:
-            data = callback_query.data.split()[1]
-            button = [
-                [
-                    InlineKeyboardButton(
-                        "• KEMBALI •", callback_data="limit limit_back"
-                    )
-                ]
-            ]
             if data == "limit":
-                msg = help_limit[0]
+                msg = help_sticker[5]
             if data == "play":
-                msg = help_limit[1]
-            if data == "limit_back":
+                msg = help_sticker[6]
+            if data == "sticker_back":
                 button = [
                     [
                         InlineKeyboardButton(
