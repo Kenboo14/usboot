@@ -358,9 +358,9 @@ async def _(client, callback_query):
                 ]
             msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
             if data == "gcast":
-                msg = help_next[2]
+                msg = help_next[1]
             if data == "sg":
-                msg = help_next[3]
+                msg = help_next[2]
             if data == "next_back":
                 button = [
                     [
