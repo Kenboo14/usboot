@@ -174,7 +174,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("PLAY", callback_data="sticker play"),
         ],
         [
-            InlineKeyboardButton("<<", callback_data="next gcast"),
+            InlineKeyboardButton("<<", callback_data="next next"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -246,7 +246,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="next gcast"
+                            "<<", callback_data="next next"
                         ),
                     ],
                 ]
@@ -323,7 +323,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="next gcast"
+                            "<<", callback_data="next next"
                         ),
                     ],
                 ]
@@ -341,7 +341,15 @@ async def _(client, callback_query):
                 [InlineKeyboardButton("• KEMBALI •", callback_data="next next_back")]
             ]
             if data == "next":
-                msg = help_next[0]
+                button = [
+                    [
+                        InlineKeyboardButton(
+                            "GLOBALS", callback_data="admin admin_gban"
+                        ),
+                        InlineKeyboardButton(
+                            "KANGS", callback_data="sticker sticker_kang"
+                        ),
+                    ],
             if data == "gcast":
                 msg = help_next[1]
             if data == "next_back":
@@ -385,7 +393,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="next gcast"
+                            "<<", callback_data="next next"
                         ),
                     ],
                 ]
