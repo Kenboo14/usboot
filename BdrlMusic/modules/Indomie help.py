@@ -177,7 +177,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("PLAY", callback_data="sticker play"),
         ],
         [
-            InlineKeyboardButton("<<", callback_data="next next_back"),
+            InlineKeyboardButton("..", callback_data="next user_help_command"),
             InlineKeyboardButton(">>", callback_data="next next"),
         ],
     ]
