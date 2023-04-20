@@ -113,6 +113,15 @@ Penjelasan:
         """,
 ]
 
+help_next = [
+        f"""<b>HELP MENU
+            INI MENU LANJUTAN</b>
+        """,
+        f"""<b>HELP GIKES
+            INI MENU LANJUTAN</b>
+        """,
+]
+
 help_text = {
     "global": help_admin[0],
     "restrict": help_admin[1],
@@ -123,7 +132,8 @@ help_text = {
     "tiny": help_sticker[4],
     "limit": help_sticker[5],
     "play": help_sticker[6],
-    "gcast": help_sticker[7],
+    "next": help_next[0],
+    "gcast": help_next[1],
  
 }
 
@@ -164,7 +174,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("PLAY", callback_data="sticker play"),
         ],
         [
-            InlineKeyboardButton("<<", callback_data="sticker gcast"),
+            InlineKeyboardButton("<<", callback_data="next gcast"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -236,7 +246,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="sticker gcast"
+                            "<<", callback_data="next gcast"
                         ),
                     ],
                 ]
@@ -253,9 +263,6 @@ async def _(client, callback_query):
             data = callback_query.data.split()[1]
             button = [
                 [
-                    InlineKeyboardButton(
-                        "GIKES", callback_data="sticker gcast"
-                    ),
                     InlineKeyboardButton(
                         "• KEMBALI •", callback_data="sticker sticker_back"
                     )
@@ -275,14 +282,6 @@ async def _(client, callback_query):
                 msg = help_sticker[5]
             if data == "play":
                 msg = help_sticker[6]
-            if data == "gcast":
-                button = [
-                    [
-                        InlineKeyboardButton(
-                            "GIKES", callback_data="sticker gcast"
-                        ),
-                    ],    
-                ]
             if data == "sticker_back":
                 button = [
                     [
@@ -324,7 +323,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="sticker gcast"
+                            "<<", callback_data="next gcast"
                         ),
                     ],
                 ]
@@ -333,3 +332,64 @@ async def _(client, callback_query):
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
             
+@bot.on_callback_query(filters.regex("^next"))
+async def _(client, callback_query):
+    for my in ubot._ubot:
+        if callback_query.from_user.id == my.me.id:
+            data = callback_query.data.split()[1]
+            button = [
+                [InlineKeyboardButton("• KEMBALI •", callback_data="next next_back")]
+            ]
+            if data == "next":
+                msg = help_next[0]
+            if data == "gcast":
+                msg = help_next[1]
+            if data == "next_back":
+                button = [
+                    [
+                        InlineKeyboardButton(
+                            "GLOBALS", callback_data="admin admin_gban"
+                        ),
+                        InlineKeyboardButton(
+                            "KANG", callback_data="sticker sticker_kang"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "MEMIFY", callback_data="sticker sticker_memify"
+                        ),
+                        InlineKeyboardButton(
+                            "MAMES", callback_data="sticker sticker_memes"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "QUOTLY", callback_data="sticker sticker_quotly"
+                        ),
+                        InlineKeyboardButton(
+                            "ADMIN", callback_data="admin admin_restrict"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "TINY", callback_data="sticker sticker_tiny"
+                        ),
+                        InlineKeyboardButton(
+                            "LIMIT", callback_data="sticker limit"
+                        ),
+                    ],
+                     [
+                        InlineKeyboardButton(
+                            "PLAY", callback_data="sticker play"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "<<", callback_data="next gcast"
+                        ),
+                    ],
+                ]
+                msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+            await callback_query.edit_message_text(
+                msg, reply_markup=InlineKeyboardMarkup(button)
+            )
