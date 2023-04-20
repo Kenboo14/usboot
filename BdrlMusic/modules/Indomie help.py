@@ -118,6 +118,8 @@ help_next = [
         """,
     f"""<b>HELP SANGMATA
             INI MENU SANG MATA</b>
+        """,f"""<b>HELP ANBU
+            INI MENU SANG MATA</b>
         """,
 ]
 
@@ -360,9 +362,9 @@ async def _(client, callback_query):
                 ]
                 msg = help_next[1]
             if data == "gcast":
-                msg = help_next[1]
-            if data == "sg":
                 msg = help_next[2]
+            if data == "sg":
+                msg = help_next[3]
             if data == "next_back":
                 button = [
                     [
