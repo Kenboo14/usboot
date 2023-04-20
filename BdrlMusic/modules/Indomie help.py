@@ -147,7 +147,7 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("TINY", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("LIMIT", callback_data="limit limited"),
+            InlineKeyboardButton("LIMIT", callback_data="limit"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
