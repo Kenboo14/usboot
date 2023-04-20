@@ -349,11 +349,14 @@ async def _(client, callback_query):
                 msg = help_next[2]
             if data == "next":
                 msg = button = [
-                [
-                    InlineKeyboardButton("GIKES", callback_data="next gcast"),
-                    InlineKeyboardButton("SG", callback_data="next sg")
-                ]
-            ]         
+                    [
+                        InlineKeyboardButton(
+                            "GIKES", callback_data="next gcast"
+                        ),
+                        InlineKeyboardButton(
+                            "SG", callback_data="next sg"
+                        ),
+                    ]   
             if data == "gcast":
                 msg = help_next[1]
             if data == "sg":
