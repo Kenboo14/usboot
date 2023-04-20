@@ -282,3 +282,56 @@ async def _(client, callback_query):
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
+@bot.on_callback_query(filters.regex("^limit"))
+async def _(client, callback_query):
+    for my in ubot._ubot:
+        if callback_query.from_user.id == my.me.id:
+            data = callback_query.data.split()[1]
+            button = [
+                [
+                    InlineKeyboardButton(
+                        "• KEMBALI •", callback_data="limit limit_back"
+                    )
+                ]
+            ]
+            if data == "limit":
+                msg = help_limit[5]
+            if data == "limit_back":
+                button = [
+                    [
+                        InlineKeyboardButton(
+                            "GLOBAL", callback_data="admin admin_gban"
+                        ),
+                        InlineKeyboardButton(
+                            "KANG", callback_data="sticker sticker_kang"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "MEMIFY", callback_data="sticker sticker_memify"
+                        ),
+                        InlineKeyboardButton(
+                            "MAMES", callback_data="sticker sticker_memes"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "QUOTLY", callback_data="sticker sticker_quotly"
+                        ),
+                        InlineKeyboardButton(
+                            "ADMIN", callback_data="admin admin_restrict"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "TINY", callback_data="sticker sticker_tiny"
+                        ),
+                        InlineKeyboardButton(
+                            "LIMIT", callback_data="limit"
+                        ),      
+                    ],
+                ]
+                msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+            await callback_query.edit_message_text(
+                msg, reply_markup=InlineKeyboardMarkup(button)
+            )
