@@ -175,7 +175,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("PLAY", callback_data="sticker play"),
         ],
         [
-            InlineKeyboardButton("<<", callback_data="sticker next"),
+            InlineKeyboardButton("<<", callback_data="next next"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
