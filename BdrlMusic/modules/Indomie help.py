@@ -132,9 +132,8 @@ help_text = {
     "tiny": help_sticker[4],
     "limit": help_sticker[5],
     "play": help_sticker[6],
-    "noxt": help_next[0],
-    "next": help_next[1],
-    "gcast": help_next[2],
+    "next": help_next[0],
+    "gcast": help_next[1],
  
 }
 
