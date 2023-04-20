@@ -241,8 +241,6 @@ async def _(client, callback_query):
                 msg = help_sticker[3]
             if data == "sticker_tiny":
                 msg = help_sticker[4]
-            if data == "limit":
-                msg = help_limit[5]
             if data == "sticker_back":
                 button = [
                     [
