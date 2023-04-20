@@ -351,7 +351,7 @@ async def _(client, callback_query):
             if data == "sg":
                 msg = help_next[3]
             if data == "next":
-                msg = help_next[1] button = [
+                msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>" button = [
                     [
                         InlineKeyboardButton(
                             "GIKES", callback_data="next gcast"
