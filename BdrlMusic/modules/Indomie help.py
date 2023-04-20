@@ -104,24 +104,17 @@ Perintah:
           <code>{PREFIXES[0]}play</code> [Tambahkan Judul Lagu]
 Penjelasan: Silahkan ketik .play judullagu</b>
     """,
-        f"""<b>HELP MENU
-            INI MENU LANJUTAN</b>
-        """,
-        f"""<b>HELP BROADCAST
-Penjelasan:
-        <code>{PREFIXES[0]}gcast</code> [Untuk Gikes]
-        """,
      f"""<b>HELP MENU
             INI MENU LANJUTAN</b>
         """,
 ]
 
 help_next = [
-        f"""<b>HELP MENU
-            INI MENU LANJUTAN</b>
-        """,
         f"""<b>HELP GIKES
             INI MENU LANJUTAN</b>
+        """,
+    f"""<b>HELP BROADCAST
+            INI MENU BROADCAST</b>
         """,
 ]
 
@@ -136,7 +129,9 @@ help_text = {
     "limit": help_sticker[5],
     "play": help_sticker[6],
     "next": help_sticker[7],
-    "gcast": help_next[0],
+    "next": help_next[0],
+    "gcast": help_next[1],
+    "sg": help_next[2],
  
 }
 
@@ -347,10 +342,15 @@ async def _(client, callback_query):
             ]
             if data == "next":
                 msg = button = [
-                [InlineKeyboardButton("GIKES", callback_data="next gcast")]
-            ]                     
+                [
+                    InlineKeyboardButton("GIKES", callback_data="next gcast"),
+                    InlineKeyboardButton("SG", callback_data="next sg")
+                ]
+            ]         
             if data == "gcast":
-                msg = help_next[0]
+                msg = help_next[1]
+            if data == "sg":
+                msg = help_next[2]
             if data == "next_back":
                 button = [
                     [
