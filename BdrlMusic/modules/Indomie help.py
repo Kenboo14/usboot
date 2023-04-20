@@ -110,7 +110,7 @@ Penjelasan: Silahkan ketik .play judullagu</b>
 ]
 
 help_next = [
-        f"""<b>HELP GIKES
+        f"""<b>HELP BC
             INI MENU LANJUTAN</b>
         """,
     f"""<b>HELP BROADCAST
@@ -395,7 +395,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="sticker next"
+                            "<<", callback_data="next next"
                         ),
                     ],
                 ]
