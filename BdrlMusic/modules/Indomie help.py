@@ -116,6 +116,9 @@ help_next = [
     f"""<b>HELP BROADCAST
             INI MENU BROADCAST</b>
         """,
+    f"""<b>HELP SANGMATA
+            INI MENU SANG MATA</b>
+        """,
 ]
 
 help_text = {
