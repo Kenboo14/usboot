@@ -349,7 +349,8 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "KANGS", callback_data="sticker sticker_kang"
                         ),
-                    ],
+                    ]
+                ]                   
             if data == "gcast":
                 msg = help_next[1]
             if data == "next_back":
