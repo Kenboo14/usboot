@@ -351,7 +351,7 @@ async def _(client, callback_query):
                     ],
                     [                                          
                         InlineKeyboardButton(
-                            ">>", callback_data="next next"
+                            "<<", callback_data="next next_back"
                         ),
                     ],
                     
