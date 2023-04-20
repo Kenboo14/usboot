@@ -111,6 +111,9 @@ Penjelasan: Silahkan ketik .play judullagu</b>
 Penjelasan:
         <code>{PREFIXES[0]}gcast</code> [Untuk Gikes]
         """,
+     f"""<b>HELP MENU
+            INI MENU LANJUTAN</b>
+        """,
 ]
 
 help_next = [
@@ -132,8 +135,8 @@ help_text = {
     "tiny": help_sticker[4],
     "limit": help_sticker[5],
     "play": help_sticker[6],
-    "next": help_next[0],
-    "gcast": help_next[1],
+    "next": help_sticker[7],
+    "gcast": help_next[0],
  
 }
 
@@ -174,7 +177,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("PLAY", callback_data="sticker play"),
         ],
         [
-            InlineKeyboardButton("<<", callback_data="next next"),
+            InlineKeyboardButton("<<", callback_data="sticker next"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -246,7 +249,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="next next"
+                            "<<", callback_data="sticker next"
                         ),
                     ],
                 ]
@@ -282,6 +285,8 @@ async def _(client, callback_query):
                 msg = help_sticker[5]
             if data == "play":
                 msg = help_sticker[6]
+            if data == "next":
+                msg = help_sticker[7]
             if data == "sticker_back":
                 button = [
                     [
@@ -323,7 +328,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="next next"
+                            "<<", callback_data="sticker next"
                         ),
                     ],
                 ]
@@ -345,7 +350,7 @@ async def _(client, callback_query):
                 [InlineKeyboardButton("GIKES", callback_data="next gcast")]
             ]                     
             if data == "gcast":
-                msg = help_next[1]
+                msg = help_next[0]
             if data == "next_back":
                 button = [
                     [
@@ -387,7 +392,7 @@ async def _(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton(
-                            "<<", callback_data="next next"
+                            "<<", callback_data="sticker next"
                         ),
                     ],
                 ]
