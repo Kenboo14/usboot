@@ -363,7 +363,6 @@ async def _(client, callback_query):
                 msg = help_next[3]
             if data == "next_back":
                 button = [
-                    "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>" 
                     [
                         InlineKeyboardButton(
                             "GLOBALS", callback_data="admin admin_gban"
