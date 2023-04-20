@@ -354,12 +354,9 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "SG", callback_data="next sg"
                         ),
-                    ],
+                    ]
                 ]
             msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
-            await callback_query.edit_message_text(
-                msg, reply_markup=InlineKeyboardMarkup(button)
-            )
             if data == "gcast":
                 msg = help_next[2]
             if data == "sg":
