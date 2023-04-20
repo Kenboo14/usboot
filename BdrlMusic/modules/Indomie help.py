@@ -56,6 +56,11 @@ Perintah:
 Penjelasan:
          Gaperlu gw jelasin lupasati udhbtau ini fungsi apa</b>
     """,
+    f"""<b>HELP PLAY
+
+Perintah:
+          <cide>{PREFIXES[0]}play</code> [Tambahkan Judul Lagu]
+Penjelasan: Silahkan ketik .play judullagu</b>
 
 ]
 
@@ -113,7 +118,7 @@ help_text = {
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
     "limit": help_limit[0],
-    "limit": help_limit[1],
+    "play": help_limit[1],
  
 }
 
@@ -149,6 +154,8 @@ async def _(client, inline_query):
         [
             InlineKeyboardButton("TINY", callback_data="sticker sticker_tiny"),
             InlineKeyboardButton("LIMIT", callback_data="limit"),
+        ],
+            InlineKeyboardButton("PLAY", callback_data="play"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -211,6 +218,11 @@ async def _(client, callback_query):
                         ),
                         InlineKeyboardButton(
                             "LIMIT", callback_data="limit"
+                        ),
+                    ],
+                     [
+                        InlineKeyboardButton(
+                            "PLAY", callback_data="play"
                         ),
                     ],
                 ]
@@ -276,6 +288,11 @@ async def _(client, callback_query):
                             "LIMIT", callback_data="limit"
                         ),      
                     ],
+                    [
+                        InlineKeyboardButton(
+                            "PLAY", callback_data="play"
+                        ),
+                    ],
                 ]
                 msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
@@ -295,7 +312,7 @@ async def _(client, callback_query):
             ]
             if data == "limit":
                 msg = help_limit[0]
-            if data == "limit":
+            if data == "play":
                 msg = help_limit[1]
             if data == "limit_back":
                 button = [
@@ -330,6 +347,11 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "LIMIT", callback_data="limit"
                         ),      
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "PLAY", callback_data="play"
+                        ),
                     ],
                 ]
                 msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
