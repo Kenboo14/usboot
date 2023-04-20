@@ -178,6 +178,7 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("<<", callback_data="next next"),
+            InlineKeyboardButton(">>", callback_data="next next"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -250,6 +251,9 @@ async def _(client, callback_query):
                     [
                         InlineKeyboardButton(
                             "<<", callback_data="next next"
+                        ),
+                        InlineKeyboardButton(
+                            ">>", callback_data="next next_back"
                         ),
                     ],
                 ]
@@ -330,6 +334,9 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "<<", callback_data="next next"
                         ),
+                        InlineKeyboardButton(
+                            ">>", callback_data="next next_back"
+                        ),
                     ],
                 ]
                 msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -354,7 +361,16 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "SG", callback_data="next sg"
                         ),
-                    ]
+                    ],
+                    [ 
+                        InlineKeyboardButton(
+                            "<<", callback_data="next next"
+                        ),
+                        InlineKeyboardButton(
+                            ">>", callback_data="next next_back"
+                        ),
+                    ],
+                    
                 ]
             msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
             if data == "gcast":
@@ -403,6 +419,9 @@ async def _(client, callback_query):
                     [
                         InlineKeyboardButton(
                             "<<", callback_data="next next"
+                        ),
+                        InlineKeyboardButton(
+                            ">>", callback_data="next next_back"
                         ),
                     ],
                 ]
