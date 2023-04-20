@@ -343,8 +343,7 @@ async def _(client, callback_query):
             button = [
                 [InlineKeyboardButton("• KEMBALI •", callback_data="next next_back")]
             ]
-            if data == "next"
-                msg = help_next[0]
+   
             if data == "gcast":
                 msg = help_next[1]
             if data == "sg":
@@ -358,7 +357,7 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "SG", callback_data="next sg"
                         ),
-                    ],   
+                    ]
                 ]
             if data == "gcast":
                 msg = help_next[1]
