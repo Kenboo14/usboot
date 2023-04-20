@@ -112,7 +112,7 @@ help_text = {
     "memes": help_sticker[2],
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
-    "limit": help_limit[5],
+    "limit": help_limit[0],
  
 }
 
@@ -293,7 +293,7 @@ async def _(client, callback_query):
                 ]
             ]
             if data == "limit":
-                msg = help_limit[5]
+                msg = help_limit[0]
             if data == "limit_back":
                 button = [
                     [
