@@ -357,6 +357,7 @@ async def _(client, callback_query):
                             "SG", callback_data="next sg"
                         ),
                     ]   
+                ]
             if data == "gcast":
                 msg = help_next[1]
             if data == "sg":
