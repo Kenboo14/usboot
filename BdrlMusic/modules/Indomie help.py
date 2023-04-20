@@ -132,8 +132,9 @@ help_text = {
     "tiny": help_sticker[4],
     "limit": help_sticker[5],
     "play": help_sticker[6],
-    "next": help_next[0],
-    "gcast": help_next[1],
+    "noxt": help_next[0],
+    "next": help_next[1],
+    "gcast": help_next[2],
  
 }
 
@@ -341,16 +342,9 @@ async def _(client, callback_query):
                 [InlineKeyboardButton("• KEMBALI •", callback_data="next next_back")]
             ]
             if data == "next":
-                button = [
-                    [
-                        InlineKeyboardButton(
-                            "GLOBALS", callback_data="admin admin_gban"
-                        ),
-                        InlineKeyboardButton(
-                            "KANGS", callback_data="sticker sticker_kang"
-                        ),
-                    ]
-                ]                   
+                msg = button = [
+                [InlineKeyboardButton("GIKES", callback_data="next gcast")]
+            ]                     
             if data == "gcast":
                 msg = help_next[1]
             if data == "next_back":
