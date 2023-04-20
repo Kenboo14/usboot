@@ -59,9 +59,9 @@ Penjelasan:
     f"""<b>HELP PLAY
 
 Perintah:
-          <cide>{PREFIXES[0]}play</code> [Tambahkan Judul Lagu]
+          <code>{PREFIXES[0]}play</code> [Tambahkan Judul Lagu]
 Penjelasan: Silahkan ketik .play judullagu</b>
-
+    """,
 ]
 
 help_sticker = [
@@ -155,6 +155,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("TINY", callback_data="sticker sticker_tiny"),
             InlineKeyboardButton("LIMIT", callback_data="limit"),
         ],
+        [
             InlineKeyboardButton("PLAY", callback_data="play"),
         ],
     ]
