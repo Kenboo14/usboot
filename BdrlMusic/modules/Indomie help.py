@@ -48,22 +48,6 @@ Penjelasan:
 """,
 ]
 
-help_limit = [
-    f"""<b>HELP LIMIT
-
-Perintah:
-         <code>{PREFIXES[0]}limit</code> [ketik aja limit]
-Penjelasan:
-         Gaperlu gw jelasin lupasati udhbtau ini fungsi apa</b>
-    """,
-    f"""<b>HELP PLAY
-
-Perintah:
-          <code>{PREFIXES[0]}play</code> [Tambahkan Judul Lagu]
-Penjelasan: Silahkan ketik .play judullagu</b>
-    """,
-]
-
 help_sticker = [
     f"""<b>HELP STICKER KANG
 
@@ -107,6 +91,19 @@ Perintah:
 Penjelasan:
            Untuk merubah sticker menjadi kecil</b>
 """,
+    f"""<b>HELP LIMIT
+
+Perintah:
+         <code>{PREFIXES[0]}limit</code> [ketik aja limit]
+Penjelasan:
+         Gaperlu gw jelasin lupasati udhbtau ini fungsi apa</b>
+    """,
+    f"""<b>HELP PLAY
+
+Perintah:
+          <code>{PREFIXES[0]}play</code> [Tambahkan Judul Lagu]
+Penjelasan: Silahkan ketik .play judullagu</b>
+    """,
 ]
 
 help_text = {
@@ -153,10 +150,10 @@ async def _(client, inline_query):
         ],
         [
             InlineKeyboardButton("TINY", callback_data="sticker sticker_tiny"),
-            InlineKeyboardButton("LIMIT", callback_data="limit"),
+            InlineKeyboardButton("LIMIT", callback_data="sticker limit"),
         ],
         [
-            InlineKeyboardButton("PLAY", callback_data="play"),
+            InlineKeyboardButton("PLAY", callback_data="sticker play"),
         ],
     ]
     msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
@@ -218,12 +215,12 @@ async def _(client, callback_query):
                             "TINY", callback_data="sticker sticker_tiny"
                         ),
                         InlineKeyboardButton(
-                            "LIMIT", callback_data="limit"
+                            "LIMIT", callback_data="sticker limit"
                         ),
                     ],
                      [
                         InlineKeyboardButton(
-                            "PLAY", callback_data="play"
+                            "PLAY", callback_data="sticker play"
                         ),
                     ],
                 ]
@@ -290,12 +287,12 @@ async def _(client, callback_query):
                             "TINY", callback_data="sticker sticker_tiny"
                         ),
                         InlineKeyboardButton(
-                            "LIMIT", callback_data="limit"
+                            "LIMIT", callback_data="sticker limit"
                         ),      
                     ],
                     [
                         InlineKeyboardButton(
-                            "PLAY", callback_data="play"
+                            "PLAY", callback_data="sticker play"
                         ),
                     ],
                 ]
