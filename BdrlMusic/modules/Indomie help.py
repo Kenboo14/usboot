@@ -172,12 +172,9 @@ async def _(client, inline_query):
         [
             InlineKeyboardButton("TINY", callback_data="sticker sticker_tiny"),
             InlineKeyboardButton("LIMIT", callback_data="sticker limit"),
-        ],
+        ],       
         [
-            InlineKeyboardButton("PLAY", callback_data="sticker play"),
-        ],
-        [
-            InlineKeyboardButton("..", callback_data="next user_help_command"),
+            InlineKeyboardButton("Play", callback_data="sticker play"),
             InlineKeyboardButton(">>", callback_data="next next"),
         ],
     ]
@@ -242,15 +239,10 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "LIMIT", callback_data="sticker limit"
                         ),
-                    ],
-                     [
-                        InlineKeyboardButton(
-                            "PLAY", callback_data="sticker play"
-                        ),
-                    ],
+                    ],                                                    
                     [
-                        InlineKeyboardButton(
-                            "<<", callback_data="next next_back"
+                         InlineKeyboardButton(
+                            "PLAY", callback_data="sticker play"
                         ),
                         InlineKeyboardButton(
                             ">>", callback_data="next next"
@@ -324,15 +316,10 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "LIMIT", callback_data="sticker limit"
                         ),      
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "PLAY", callback_data="sticker play"
-                        ),
-                    ],
+                    ],                    
                     [                       
-                        InlineKeyboardButton(
-                            "<<", callback_data="next next_back"
+                         InlineKeyboardButton(
+                            "PLAY", callback_data="sticker play"
                         ),
                         InlineKeyboardButton(
                             ">>", callback_data="next next"
@@ -362,10 +349,7 @@ async def _(client, callback_query):
                             "SG", callback_data="next sg"
                         ),
                     ],
-                    [                     
-                        InlineKeyboardButton(
-                            "<<", callback_data="next next_back"
-                        ),
+                    [                                          
                         InlineKeyboardButton(
                             ">>", callback_data="next next"
                         ),
@@ -410,15 +394,10 @@ async def _(client, callback_query):
                         InlineKeyboardButton(
                             "LIMIT", callback_data="sticker limit"
                         ),
-                    ],
-                     [
-                        InlineKeyboardButton(
-                            "PLAY", callback_data="sticker play"
-                        ),
-                    ],
+                    ],                                     
                     [                       
-                        InlineKeyboardButton(
-                            "<<", callback_data="next next_back"
+                         InlineKeyboardButton(
+                            "PLAY", callback_data="sticker play"
                         ),
                         InlineKeyboardButton(
                             ">>", callback_data="next next"
