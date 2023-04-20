@@ -366,10 +366,6 @@ async def _(client, callback_query):
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
 
-            if data == "gcast":
-                msg = help_next[2]
-            if data == "sg":
-                msg = help_next[3]
             if data == "next_back":
                 button = [
                     "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>" 
