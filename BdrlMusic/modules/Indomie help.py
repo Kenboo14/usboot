@@ -110,6 +110,7 @@ Penjelasan: Silahkan ketik .play judullagu</b>
         f"""<b>HELP BROADCAST
 Penjelasan:
         <code>{PREFIXES[0]}gcast</code> [Untuk Gikes]
+        """,
 ]
 
 help_text = {
