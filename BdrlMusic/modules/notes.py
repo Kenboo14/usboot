@@ -7,4 +7,5 @@ from config import PREFIXES
 
 @ubot.on_message(filters.command("notes", PREFIXES) & filters.me)
 async def _(client, message):
-    print "JANCOK"
+    print ("JANCOK");
+    print ("KONTOL");
