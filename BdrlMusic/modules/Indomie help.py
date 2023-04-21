@@ -114,10 +114,14 @@ help_next = [
             INI MENU LANJUTAN</b>
         """,
     f"""<b>HELP BROADCAST
-            INI MENU BROADCAST</b>
+    Perintah: 
+            <code>{PREFIXES[0]}gcast</code> [reply text]
+    Penjelasan: ini menu broadcast/gcast silahkan ketik .gcast + replychat</b>
         """,
     f"""<b>HELP SANGMATA
-            INI MENU SANG MATA</b>
+    Perintah: 
+            <code>{PREFIXES[0]}sg</code> [id/username]
+    Penjelasan: ini menu Sang Mata silahkan ketik .sg + id/username</b>
         """,f"""<b>HELP ANBU
             INI MENU SANG MATA</b>
         """,
@@ -178,7 +182,7 @@ async def _(client, inline_query):
             InlineKeyboardButton(">>", callback_data="next next"),
         ],
     ]
-    msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+    msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -249,7 +253,7 @@ async def _(client, callback_query):
                         ),
                     ],
                 ]
-                msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
@@ -326,7 +330,7 @@ async def _(client, callback_query):
                         ),
                     ],
                 ]
-                msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
@@ -346,7 +350,7 @@ async def _(client, callback_query):
                             "Broadcast", callback_data="next gcast"
                         ),
                         InlineKeyboardButton(
-                            "SanggMata", callback_data="next sg"
+                            "SangMata", callback_data="next sg"
                         ),
                     ],
                     [                                          
@@ -356,7 +360,7 @@ async def _(client, callback_query):
                     ],
                     
                 ]
-            msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+            msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
             if data == "gcast":
                 msg = help_next[1]
             if data == "sg":
@@ -404,7 +408,7 @@ async def _(client, callback_query):
                         ),
                     ],
                 ]
-                msg = "<b>HELP MENU OPEN\nPREFIXES: <code>. , : ; !</code></b>"
+                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
