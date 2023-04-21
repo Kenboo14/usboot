@@ -6,7 +6,11 @@ from pyrogram.types import Message
 from BdrlMusic import ubot
 from BdrlMusic.utils import dbfunctions as TOMI
 from config import PREFIXES
+from pyrogram import *
+from pyrogram.types import *
+
 from BdrlMusic import *
+from config import *
 
 log = []
 
@@ -134,7 +138,7 @@ async def _(client, message):
         except Exception as error:
             return await message.reply(error)
     else:
-        if message.command[1] in help_text:
+        if message.command[1] in payment_text:
             return await message.reply(payment_text[message.command[1]]) 
          
          
