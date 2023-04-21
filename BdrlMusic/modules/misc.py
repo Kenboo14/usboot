@@ -149,8 +149,12 @@ async def _(client, message):
         await client.copy_message(
             message.chat.id, client.me.id, note, reply_to_message_id=message.id
         )
+
+
+@ubot.on_message(filters.command("getpay", PREFIXES) & filters.me)
+async def _(client, message):
  if len(message.command) < 2:
-        x = await client.get_inline_bot_results(bot.me.username, "user_get_command")
+        x = await client.get_inline_bot_results(bot.me.username, "user_getpay_command")
         try:
             return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
         except Exception as error:
@@ -160,7 +164,7 @@ async def _(client, message):
             return await message.reply(payment_text[message.command[1]]) 
          
 
-@bot.on_inline_query(filters.regex("^user_get_command"))
+@bot.on_inline_query(filters.regex("^user_getpay_command"))
 async def _(client, inline_query):
     button = [
         [
