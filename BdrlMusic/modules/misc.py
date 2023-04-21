@@ -150,8 +150,7 @@ async def _(client, message):
             message.chat.id, client.me.id, note, reply_to_message_id=message.id
         )
 
-
-@ubot.on_message(filters.command("getpay", PREFIXES) & filters.me)
+@ubot.on_message(filters.me & filters.command("getpay", PREFIXES))
 async def _(client, message):
  if len(message.command) < 2:
         x = await client.get_inline_bot_results(bot.me.username, "user_getpay_command")
