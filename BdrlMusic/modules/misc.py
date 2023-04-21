@@ -193,7 +193,7 @@ async def _(client, callback_query):
             if data == "admin_restrict":
                 msg = help_payment[1]
             if data == "payment_back":
-                 button = [
+                msg = button = [
                     [
                         InlineKeyboardButton(
                             "Global", callback_data="admin admin_gban"
@@ -235,7 +235,7 @@ async def _(client, callback_query):
                         ),
                     ],
                 ]
-                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+                
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
