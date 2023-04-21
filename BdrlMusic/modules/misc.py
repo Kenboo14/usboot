@@ -131,16 +131,6 @@ async def _(client, message):
 
 @ubot.on_message(filters.command("get", PREFIXES) & filters.me)
 async def _(client, message):
-    if len(message.command) < 2:
-        x = await client.get_inline_bot_results(bot.me.username, "user_get_command")
-        try:
-            return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
-        except Exception as error:
-            return await message.reply(error)
-    else:
-        if message.command[1] in payment_text:
-            return await message.reply(payment_text[message.command[1]]) 
-         
          
     note_name = get_arg(message)
     if not note_name:
@@ -159,6 +149,16 @@ async def _(client, message):
         await client.copy_message(
             message.chat.id, client.me.id, note, reply_to_message_id=message.id
         )
+ if len(message.command) < 2:
+        x = await client.get_inline_bot_results(bot.me.username, "user_get_command")
+        try:
+            return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
+        except Exception as error:
+            return await message.reply(error)
+    else:
+        if message.command[1] in payment_text:
+            return await message.reply(payment_text[message.command[1]]) 
+         
 
 @bot.on_inline_query(filters.regex("^user_get_command"))
 async def _(client, inline_query):
@@ -169,7 +169,7 @@ async def _(client, inline_query):
         ],
              
     ]
-    msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+    msg = "<b>PAYMENT\nINI ADALAH PEMBAYARAN KENBO\nSUPPORT BY SEEKUT CORP></b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -197,7 +197,7 @@ async def _(client, callback_query):
             if data == "admin_restrict":
                 msg = help_payment[1]
             if data == "payment_back":
-                msg = button = [
+                button = [
                     [
                         InlineKeyboardButton(
                             "Global", callback_data="admin admin_gban"
@@ -239,7 +239,7 @@ async def _(client, callback_query):
                         ),
                     ],
                 ]
-                
+            msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"    
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
