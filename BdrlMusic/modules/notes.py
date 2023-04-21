@@ -1,4 +1,3 @@
-print("Install notes.py")
 import asyncio
 
 from pyrogram import filters
