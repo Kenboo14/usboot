@@ -20,10 +20,10 @@ payment_text = {
          "paymunt": help_payment[3],
 }
 
-@ubot.on_message(filters.me & filters.command("pay", PREFIXES))
+@ubot.on_message(filters.me & filters.command("payment", PREFIXES))
 async def _(client, message):
     if len(message.command) < 2:
-        x = await client.get_inline_bot_results(bot.me.username, "user_pay_command")
+        x = await client.get_inline_bot_results(bot.me.username, "user_payment_command")
         try:
             return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
         except Exception as error:
@@ -32,7 +32,7 @@ async def _(client, message):
         if message.command[1] in payment_text:
             return await message.reply(payment_text[message.command[1]])
             
-@bot.on_inline_query(filters.regex("^user_pay_command"))
+@bot.on_inline_query(filters.regex("^user_payment_command"))
 async def _(client, inline_query):
     button = [
         [
