@@ -131,7 +131,17 @@ async def _(client, message):
          
      @ubot.on_message(filters.me & filters.command("get", PREFIXES))
 async def _(client, message):
-         
+     if len(message.command) < 2:
+        x = await client.get_inline_bot_results(bot.me.username, "user_get_command")
+        try:
+            return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
+        except Exception as error:
+            return await message.reply(error)
+    else:
+        if message.command[1] in payment_text:
+            return await message.reply(payment_text[message.command[1]])
+
+    
     note_name = get_arg(message)
     if not note_name:
         return await message.reply("lo goblok atau gimana?")
@@ -150,16 +160,7 @@ async def _(client, message):
             message.chat.id, client.me.id, note, reply_to_message_id=message.id
         )
 
- if len(message.command) < 2:
-        x = await client.get_inline_bot_results(bot.me.username, "user_get_command")
-        try:
-            return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
-        except Exception as error:
-            return await message.reply(error)
-    else:
-        if message.command[1] in payment_text:
-            return await message.reply(payment_text[message.command[1]])
-    
+ 
 
 @bot.on_inline_query(filters.regex("^user_get_command"))
 async def _(client, inline_query):
