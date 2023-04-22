@@ -45,19 +45,7 @@ async def _(client, inline_query):
              ],
         ]               
 msg = "<b>INI PAYMENT KENBO\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
-    await client.answer_inline_query(
-        inline_query.id,
-        cache_time=0,
-        results=[
-            (
-                InlineQueryResultArticle(
-                    title="Payment!",
-                    reply_markup=InlineKeyboardMarkup(button),
-                    input_message_content=InputTextMessageContent(msg),
-                )
-            )
-        ],
-    )
+    
     
 @bot.on_callback_query(filters.regex("^payment"))
 async def _(client, callback_query):
