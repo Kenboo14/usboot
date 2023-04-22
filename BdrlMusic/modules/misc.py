@@ -1,13 +1,11 @@
 from datetime import datetime
 
 from pyrogram import enums, filters
+from pyrogram.types import Message
 
+from BdrlMusic import ubot
 from BdrlMusic.utils import dbfunctions as TOMI
-from pyrogram import *
-from pyrogram.types import *
-
-from BdrlMusic import *
-from config import *
+from config import PREFIXES
 
 log = []
 
