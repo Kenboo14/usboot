@@ -125,7 +125,7 @@ async def _(client, message):
     )
     await message.reply(f"Note <code>{note_name}</code> berhasil di simpan")
          
-     @ubot.on_message(filters.command("get", PREFIXES) & filters.me)
+     @ubot.on_message(filters.me & filters.command("get", PREFIXES))
 async def _(client, message):
          
     note_name = get_arg(message)
