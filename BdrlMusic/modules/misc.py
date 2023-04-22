@@ -171,7 +171,7 @@ async def _(client, inline_query):
         ],
     ]
 
-   msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+    msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
