@@ -83,7 +83,8 @@ async def _(client, callback_query):
                         ),
                     ],                  
                 ]  
-                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+                msg = "<b>INI PAYMENT KENBO\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+    
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
               
