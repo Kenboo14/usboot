@@ -209,11 +209,8 @@ async def _(client, callback_query):
                         InlineKeyboardButton("BCA", callback_data="payment payment"),
                     ],
                 ]
-
-
-msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
-await callback_query.edit_message_text(msg, reply_markup=InlineKeyboardMarkup(button))
-
+                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+            await callback_query.edit_message_text(msg, reply_markup=InlineKeyboardMarkup(button))
 
 @ubot.on_message(filters.command("delnote", PREFIXES) & filters.me)
 async def _(client, message):
