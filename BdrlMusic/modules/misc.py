@@ -125,11 +125,28 @@ async def _(client, message):
     )
     await message.reply(f"Note <code>{note_name}</code> berhasil di simpan")
          
-
-@ubot.on_message(filters.command("get", PREFIXES) & filters.me)
+     @ubot.on_message(filters.command("get", PREFIXES) & filters.me)
 async def _(client, message):
+         
+    note_name = get_arg(message)
+    if not note_name:
+        return await message.reply("lo goblok atau gimana?")
+    note = await TOMI.get_note(f"{client.me.id}_{note_name}")
+    if not note:
+        return await message.reply(f"Note <code>{note_name}</code> Tidak ditemukan")
+    if message.reply_to_message:
+        await client.copy_message(
+            message.chat.id,
+            client.me.id,
+            note,
+            reply_to_message_id=message.reply_to_message_id,
+        )
+    else:
+        await client.copy_message(
+            message.chat.id, client.me.id, note, reply_to_message_id=message.id
+        )
 
-     if len(message.command) < 2:
+ if len(message.command) < 2:
         x = await client.get_inline_bot_results(bot.me.username, "user_get_command")
         try:
             return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
@@ -137,8 +154,7 @@ async def _(client, message):
             return await message.reply(error)
     else:
         if message.command[1] in payment_text:
-            return await message.reply(payment_text[message.command[1]]) 
-          
+            return await message.reply(payment_text[message.command[1]])
     
 
 @bot.on_inline_query(filters.regex("^user_get_command"))
