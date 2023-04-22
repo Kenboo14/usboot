@@ -44,14 +44,14 @@ async def _(client, inline_query):
             InlineKeyboardButton("Qris", callback_data="payment paymunt"),
              ],
         ]               
-msg = "<b>INI PAYMENT KENBO\nSUPPORT BY SEEKUT CORP</b>"
+msg = "<b>INI PAYMENT KENBO\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
         results=[
             (
                 InlineQueryResultArticle(
-                    title="Help Payment!",
+                    title="Payment!",
                     reply_markup=InlineKeyboardMarkup(button),
                     input_message_content=InputTextMessageContent(msg),
                 )
