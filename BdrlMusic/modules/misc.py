@@ -149,8 +149,8 @@ async def _(client, message):
             return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
         except Exception as error:
             return await message.reply(error)
-    else:
-        if message.command[1] in getpay_text:
+ else:
+ if message.command[1] in getpay_text:
             return await message.reply(getpay_text[message.command[1]])
 
 @bot.on_inline_query(filters.regex("^user_getpay_command"))
