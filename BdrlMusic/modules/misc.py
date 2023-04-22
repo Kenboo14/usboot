@@ -142,7 +142,8 @@ async def _(client, message):
             return await message.reply(payment_text[message.command[1]]) 
          
 
-         
+@ubot.on_message(filters.command("get", PREFIXES) & filters.me)
+async def _(client, message):         
     note_name = get_arg(message)
     if not note_name:
         return await message.reply("lo goblok atau gimana?")
