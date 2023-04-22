@@ -44,7 +44,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("Qris", callback_data="payment paymunt"),
              ],
         ]               
-msg = <b>INI PAYMENT KENBO\nSUPPORT BY SEEKUT CORP</b>"
+msg = "<b>INI PAYMENT KENBO\nSUPPORT BY SEEKUT CORP</b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
