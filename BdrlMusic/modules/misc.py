@@ -131,6 +131,7 @@ async def _(client, message):
 
 @ubot.on_message(filters.command("get", PREFIXES) & filters.me)
 async def _(client, message):
+
      if len(message.command) < 2:
         x = await client.get_inline_bot_results(bot.me.username, "user_get_command")
         try:
@@ -140,10 +141,7 @@ async def _(client, message):
     else:
         if message.command[1] in payment_text:
             return await message.reply(payment_text[message.command[1]]) 
-         
-
-@ubot.on_message(filters.command("get", PREFIXES) & filters.me)
-async def _(client, message):         
+          
     note_name = get_arg(message)
     if not note_name:
         return await message.reply("lo goblok atau gimana?")
