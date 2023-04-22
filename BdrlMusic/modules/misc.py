@@ -1,11 +1,8 @@
 from datetime import datetime
 
 from pyrogram import enums, filters
-from pyrogram.types import Message
 
-from BdrlMusic import ubot
 from BdrlMusic.utils import dbfunctions as TOMI
-from config import PREFIXES
 from pyrogram import *
 from pyrogram.types import *
 
@@ -142,24 +139,7 @@ async def _(client, message):
         if message.command[1] in payment_text:
             return await message.reply(payment_text[message.command[1]]) 
           
-    note_name = get_arg(message)
-    if not note_name:
-        return await message.reply("lo goblok atau gimana?")
-    note = await TOMI.get_note(f"{client.me.id}_{note_name}")
-    if not note:
-        return await message.reply(f"Note <code>{note_name}</code> Tidak ditemukan")
-    if message.reply_to_message:
-        await client.copy_message(
-            message.chat.id,
-            client.me.id,
-            note,
-            reply_to_message_id=message.reply_to_message_id,
-        )
-    else:
-        await client.copy_message(
-            message.chat.id, client.me.id, note, reply_to_message_id=message.id
-        )
-
+    
 
 @bot.on_inline_query(filters.regex("^user_get_command"))
 async def _(client, inline_query):
