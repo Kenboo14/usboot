@@ -7,6 +7,12 @@ from BdrlMusic import ubot
 from BdrlMusic.utils import dbfunctions as TOMI
 from config import PREFIXES
 
+from pyrogram import * 
+from pyrogram.types import * 
+  
+from BdrlMusic import * 
+from config import *
+
 log = []
 
 __MODULE__ = "NOTES"
