@@ -30,7 +30,20 @@ Perintah:
          <code>{PREFIXES[0]}notes</code>
 Penjelasan:
            Untuk melihat daftar catatan yang disimpan 
-"""
+""",
+
+getpay_payment = [
+f"""<b>INI DANA</b>
+""",
+f"""<b>INI BCA</b>
+""",
+]
+
+getpay_text = {
+"paymont" : getpay_payment[0],
+"payment" : getpay_payment[1],
+
+}
 
 
 @ubot.on_message(filters.command(["stats", "status"], PREFIXES) & filters.me)
@@ -127,6 +140,70 @@ async def _(client, message):
             message.chat.id, client.me.id, note, reply_to_message_id=message.id
         )
 
+@ubot.on_message(filters.command("getpay", PREFIXES) & filters.me)
+async def _(client, message):
+
+ if len(message.command) < 2:
+        x = await client.get_inline_bot_results(bot.me.username, "user_getpay_command")
+        try:
+            return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
+        except Exception as error:
+            return await message.reply(error)
+    else:
+        if message.command[1] in getpay_text:
+            return await message.reply(getpay_text[message.command[1]])
+
+@bot.on_inline_query(filters.regex("^user_getpay_command"))
+async def _(client, inline_query):
+    button = [
+        [
+            InlineKeyboardButton("DANA", callback_data="payment paymont"),
+            InlineKeyboardButton("BCA", callback_data="payment payment"),
+        ],
+]
+
+msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+    await client.answer_inline_query(
+        inline_query.id,
+        cache_time=0,
+        results=[
+            (
+                InlineQueryResultArticle(
+                    title="Help Menu!",
+                    reply_markup=InlineKeyboardMarkup(button),
+                    input_message_content=InputTextMessageContent(msg),
+                )
+            )
+        ],
+    )
+
+@bot.on_callback_query(filters.regex("^payment"))
+async def _(client, callback_query):
+    for my in ubot._ubot:
+        if callback_query.from_user.id == my.me.id:
+            data = callback_query.data.split()[1]
+            button = [
+                [InlineKeyboardButton("• KEMBALI •", callback_data="payment payment_back")]
+            ]
+            if data == "paymont":
+                msg = getpay_payment[0]
+            if data == "payment":
+                msg = getpay_payment[1]
+            if data == "payment_back":
+                button = [
+                    [
+                        InlineKeyboardButton(
+                            "DANA", callback_data="payment paymont"
+                        ),
+                        InlineKeyboardButton(
+                            "BCA", callback_data="payment payment"
+                        ),
+                    ],
+                ]
+msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+            await callback_query.edit_message_text(
+                msg, reply_markup=InlineKeyboardMarkup(button)
+            )
 
 @ubot.on_message(filters.command("delnote", PREFIXES) & filters.me)
 async def _(client, message):
