@@ -36,7 +36,7 @@ async def get_group_call(
 @ubot.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
-    message = await edit_or_reply(message, "`Processing . . .`")
+    await message.reply(message, "`Processing . . .`")
     vctitle = get_arg(message)
     if flags == enums.ChatType.CHANNEL:
         chat_id = message.chat.title
@@ -76,7 +76,7 @@ async def end_vc_(client: Client, message: Message):
     ):
         return
     await client.send(DiscardGroupCall(call=group_call))
-    await edit_or_reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
+    await message.reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
 
 
 @ubot.on_message(filters.command("joinvc", PREFIXES) & filters.me)
@@ -109,7 +109,7 @@ async def leavevc(client: Client, message: Message):
     try:
         await client.group_call.stop()
     except Exception as e:
-        return await edit_or_reply(message, f"**ERROR:** `{e}`")
+        return await message.reply(message, f"**ERROR:** `{e}`")
     msg = "❏ **Berhasil Turun dari Obrolan Suara**"
     if chat_id:
         msg += f"\n└ **Chat ID:** `{chat_id}`"
