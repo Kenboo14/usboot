@@ -1,10 +1,10 @@
-print("Install vctools.py")
 from asyncio import sleep
 from contextlib import suppress
 from random import randint
 from typing import Optional
 
 from pyrogram import *
+from pyrogram import Client, enums, filters
 from pyrogram.raw.functions.channels import GetFullChannel
 from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
@@ -17,7 +17,7 @@ from config import PREFIXES
 
 
 async def get_group_call(
-    client, message, err_msg: str = ""
+    client: Client, message: Message, err_msg: str = ""
 ) -> Optional[InputGroupCall]:
     chat_peer = await client.resolve_peer(message.chat.id)
     if isinstance(chat_peer, (InputPeerChannel, InputPeerChat)):
@@ -34,9 +34,9 @@ async def get_group_call(
 
 
 @ubot.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
-async def _(client, message):
+async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
-    Man = await edit_or_reply(message, "`Processing . . .`")
+    message = await edit_or_reply(message, "`Processing . . .`")
     vctitle = get_arg(message)
     if flags == enums.ChatType.CHANNEL:
         chat_id = message.chat.title
@@ -60,12 +60,13 @@ async def _(client, message):
                     title=vctitle,
                 )
             )
-        await Man.edit(args)
+        await message.edit(args)
     except Exception as e:
-        await Man.edit(f"**INFO:** `{e}`")
+        await message.edit(f"**INFO:** `{e}`")
+
 
 @ubot.on_message(filters.command(["stopvc"], PREFIXES) & filters.me)
-async def _(client, message):
+async def end_vc_(client: Client, message: Message):
     """End group call"""
     chat_id = message.chat.id
     if not (
@@ -77,30 +78,32 @@ async def _(client, message):
     await client.send(DiscardGroupCall(call=group_call))
     await edit_or_reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
 
+
 @ubot.on_message(filters.command("joinvc", PREFIXES) & filters.me)
-async def _(client, message):
+async def joinvc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
-        Man = await message.reply("`Processing...`")
+        message = await message.reply("`Processing...`")
     else:
-        Man = await message.edit("`Processing....`")
+        message = await message.edit("`Processing....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
         await client.group_call.start(chat_id)
     except Exception as e:
-        return await Man.edit(f"**ERROR:** `{e}`")
-    await Man.edit(f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
+        return await message.edit(f"**ERROR:** `{e}`")
+    await message.edit(f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
     await sleep(5)
     await client.group_call.set_is_mute(True)
 
+
 @ubot.on_message(filters.command("leavevc", PREFIXES) & filters.me)
-async def _(client, message):
+async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
-        Man = await message.reply("`Processing...`")
+        message = await message.reply("`Processing...`")
     else:
-        Man = await message.edit("`Processing....`")
+        message = await message.edit("`Processing....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
@@ -110,6 +113,6 @@ async def _(client, message):
     msg = "❏ **Berhasil Turun dari Obrolan Suara**"
     if chat_id:
         msg += f"\n└ **Chat ID:** `{chat_id}`"
-    await Man.edit(msg)
+    await message.edit(msg)
 
 
