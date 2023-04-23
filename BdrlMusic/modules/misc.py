@@ -167,25 +167,23 @@ async def _(client, inline_query):
     button = [
         [
             InlineKeyboardButton("DANA", callback_data="payment paymont"),
-        ],
-    msg = "<b>Payment Pembayaran</b>"
-    await client.answer_inline_query(
-    inline_query.id,
-    text="Hello",
-    show_alert=True
-    ),
-        [
             InlineKeyboardButton("BCA", callback_data="payment payment"),
         ],
-    msg = "<b>Payment Pembayarans</b>"
-    await client.answer_inline_query(
-    inline_query.id,
-    text="anbu",
-    show_alert=True
-    )
     ]
-  
-
+     msg = "<b>PAYMENT</b>"
+     await client.answer_inline_query(
+        inline_query.id,
+        cache_time=0,
+        results=[
+            (
+                InlineQueryResultArticle(
+                    title="Help Menu!",
+                    reply_markup=InlineKeyboardMarkup(button),
+                    input_message_content=InputTextMessageContent(msg),
+                )
+            )
+        ],
+    )
 @bot.on_callback_query(filters.regex("^payment"))
 async def _(client, callback_query):
     for my in ubot._ubot:
