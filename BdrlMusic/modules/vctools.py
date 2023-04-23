@@ -1,3 +1,4 @@
+print("Install id.py")
 from asyncio import sleep
 from contextlib import suppress
 from random import randint
