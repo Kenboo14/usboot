@@ -40,18 +40,6 @@ Penjelasan:
 """,
 )
 
-getpay_payment = [
-    f"""<b>INI DANA</b>
-    """,
-    f"""<b>INI BCA</b>
-    """,
-]
-
-getpay_text = {
-    "paymont": getpay_payment[0],
-    "payment": getpay_payment[1],
-}
-
 
 @ubot.on_message(filters.command(["stats", "status"], PREFIXES) & filters.me)
 async def stats(_, message: Message):
@@ -147,7 +135,18 @@ async def _(client, message):
             message.chat.id, client.me.id, note, reply_to_message_id=message.id
         )
 
+getpay_payment = [
+    f"""<b>INI DANA</b>
+    """,
+    f"""<b>INI BCA</b>
+    """,
+]
 
+getpay_text = {
+    "paymont": getpay_payment[0],
+    "payment": getpay_payment[1],
+}
+        
 @ubot.on_message(filters.command("getpay", PREFIXES) & filters.me)
 async def _(client, message):
 
