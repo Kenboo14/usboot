@@ -170,7 +170,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("BCA", callback_data="payment payment"),
         ],
     ]
-     msg = "<b>Payment Pembayaran</b>"
+     msg = "<b>Payment Pembayaran\n <code>SEEKUT</code></b>"
      await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -207,7 +207,7 @@ async def _(client, callback_query):
                         InlineKeyboardButton("BCA", callback_data="payment payment"),
                     ],
                 ]
-            msg = "<b>Payment Pembayaran</b>"
+            msg = "<b>Payment Pembayaran\n <code>SEEKUT</code></b>"
             await client.answer_callback_query(
         callback_query.id,
         cache_time=0,
