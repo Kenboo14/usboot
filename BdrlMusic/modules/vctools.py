@@ -5,6 +5,7 @@ from typing import Optional
 
 from pyrogram import *
 from pyrogram import Client, enums, filters
+
 from pyrogram.raw.functions.channels import GetFullChannel
 from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
@@ -31,6 +32,33 @@ async def get_group_call(
             return full_chat.call
     await message.edit(f"**No group call Found** {err_msg}")
     return False
+    
+def get_arg(message: Message):
+    msg = message.text
+    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+    split = msg[1:].replace("\n", " \n").split(" ")
+    if " ".join(split[1:]).strip() == "":
+        return ""
+    return " ".join(split[1:])
+
+
+def get_args(message: Message):
+    try:
+        message = message.text
+    except AttributeError:
+        pass
+    if not message:
+        return False
+    message = message.split(maxsplit=1)
+    if len(message) <= 1:
+        return []
+    message = message[1]
+    try:
+        split = shlex.split(message)
+    except ValueError:
+        return message
+    return list(filter(lambda x: len(x) > 0, split))
+
 
 
 @ubot.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
