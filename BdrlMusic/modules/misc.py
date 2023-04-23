@@ -42,9 +42,9 @@ Penjelasan:
 
 getpay_payment = [
     f"""<b>INI DANA</b>
-""",
+    """,
     f"""<b>INI BCA</b>
-""",
+    """,
 ]
 
 getpay_text = {
