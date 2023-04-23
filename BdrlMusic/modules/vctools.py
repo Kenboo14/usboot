@@ -32,7 +32,7 @@ async def get_group_call(
             return full_chat.call
     await message.edit(f"**No group call Found** {err_msg}")
     return False
-    
+
 def get_arg(message: Message):
     msg = message.text
     msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
@@ -59,12 +59,10 @@ def get_args(message: Message):
         return message
     return list(filter(lambda x: len(x) > 0, split))
 
-
-
 @ubot.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
-    await message.reply(message, "`Processing . . .`")
+    Man = await edit_or_reply(message, "`Processing . . .`")
     vctitle = get_arg(message)
     if flags == enums.ChatType.CHANNEL:
         chat_id = message.chat.title
@@ -88,9 +86,9 @@ async def opengc(client: Client, message: Message):
                     title=vctitle,
                 )
             )
-        await message.edit(args)
+        await Man.edit(args)
     except Exception as e:
-        await message.edit(f"**INFO:** `{e}`")
+        await Man.edit(f"**INFO:** `{e}`")
 
 
 @ubot.on_message(filters.command(["stopvc"], PREFIXES) & filters.me)
@@ -104,23 +102,23 @@ async def end_vc_(client: Client, message: Message):
     ):
         return
     await client.send(DiscardGroupCall(call=group_call))
-    await message.reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
+    await edit_or_reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
 
 
 @ubot.on_message(filters.command("joinvc", PREFIXES) & filters.me)
 async def joinvc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
-        message = await message.reply("`Processing...`")
+        Man = await message.reply("`Processing...`")
     else:
-        message = await message.edit("`Processing....`")
+        Man = await message.edit("`Processing....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
         await client.group_call.start(chat_id)
     except Exception as e:
-        return await message.edit(f"**ERROR:** `{e}`")
-    await message.edit(f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
+        return await Man.edit(f"**ERROR:** `{e}`")
+    await Man.edit(f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
     await sleep(5)
     await client.group_call.set_is_mute(True)
 
@@ -129,18 +127,17 @@ async def joinvc(client: Client, message: Message):
 async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
-        message = await message.reply("`Processing...`")
+        Man = await message.reply("`Processing...`")
     else:
-        message = await message.edit("`Processing....`")
+        Man = await message.edit("`Processing....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
         await client.group_call.stop()
     except Exception as e:
-        return await message.reply(message, f"**ERROR:** `{e}`")
+        return await edit_or_reply(message, f"**ERROR:** `{e}`")
     msg = "❏ **Berhasil Turun dari Obrolan Suara**"
     if chat_id:
         msg += f"\n└ **Chat ID:** `{chat_id}`"
-    await message.edit(msg)
-
+    await Man.edit(msg)
 
