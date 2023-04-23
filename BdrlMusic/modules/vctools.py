@@ -17,7 +17,7 @@ from config import PREFIXES
 
 
 async def get_group_call(
-    client: Client, message: Message, err_msg: str = ""
+    client, message, err_msg: str = ""
 ) -> Optional[InputGroupCall]:
     chat_peer = await client.resolve_peer(message.chat.id)
     if isinstance(chat_peer, (InputPeerChannel, InputPeerChat)):
