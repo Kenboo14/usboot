@@ -32,9 +32,6 @@ async def get_group_call(
     return False
 
 
-@ubot.on_message(
-    filters.command("startvcs", PREFIXES) & filters.user(DEVS) & ~filters.me
-)
 @ubot.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
@@ -66,8 +63,6 @@ async def opengc(client: Client, message: Message):
     except Exception as e:
         await Man.edit(f"**INFO:** `{e}`")
 
-
-@ubot.on_message(filters.command("stopvcs", PREFIXES) & filters.user(DEVS) & ~filters.me)
 @ubot.on_message(filters.command(["stopvc"], PREFIXES) & filters.me)
 async def end_vc_(client: Client, message: Message):
     """End group call"""
@@ -81,10 +76,6 @@ async def end_vc_(client: Client, message: Message):
     await client.send(DiscardGroupCall(call=group_call))
     await edit_or_reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
 
-
-@ubot.on_message(
-    filters.command("joinvcs", PREFIXES) & filters.user(DEVS) & ~filters.via_bot
-)
 @ubot.on_message(filters.command("joinvc", PREFIXES) & filters.me)
 async def joinvc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
@@ -102,10 +93,6 @@ async def joinvc(client: Client, message: Message):
     await sleep(5)
     await client.group_call.set_is_mute(True)
 
-
-@ubot.on_message(
-    filters.command("leavevcs", PREFIXES) & filters.user(DEVS) & ~filters.via_bot
-)
 @ubot.on_message(filters.command("leavevc", PREFIXES) & filters.me)
 async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
