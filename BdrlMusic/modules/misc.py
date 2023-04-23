@@ -209,11 +209,11 @@ async def _(client, callback_query):
                         InlineKeyboardButton("BCA", callback_data="payment payment"),
                     ],
                 ]
-                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
-            msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+            msg = "<b>Payment Pembayaran</b>"
             await client.answer_callback_query(
     callback_query.id,
     text="Hello",
+    text="Anbu",
     show_alert=True
 )
 
