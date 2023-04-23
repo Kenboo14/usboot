@@ -208,10 +208,9 @@ async def _(client, callback_query):
                     ],
                 ]
             msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
-            await client.answer_callback_query(
-        callback_query.id,
-        cache_time=0,
-)
+        await callback_query.edit_message_text(
+            msg, reply_markup=InlineKeyboardMarkup(button)
+        )
 
 @ubot.on_message(filters.command("delnote", PREFIXES) & filters.me)
 async def _(client, message):
