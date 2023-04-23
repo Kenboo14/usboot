@@ -168,7 +168,7 @@ async def _(client, inline_query):
         [
             InlineKeyboardButton("DANA", callback_data="payment paymont"),
         ],
-    msg = ""
+    msg = "Payment Pembayaran"
     await client.answer_inline_query(
     inline_query.id,
     text="Hello",
@@ -177,7 +177,7 @@ async def _(client, inline_query):
         [
             InlineKeyboardButton("BCA", callback_data="payment payment"),
         ],
-    msg = ""
+    msg = "Payment Pembayarans"
     await client.answer_inline_query(
     inline_query.id,
     text="anbu",
