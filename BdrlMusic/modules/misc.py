@@ -169,8 +169,8 @@ async def _(client, inline_query):
             InlineKeyboardButton("DANA", callback_data="payment paymont"),
             InlineKeyboardButton("BCA", callback_data="payment payment"),
         ],
-    ]
-     msg = "<b>Payment Pembayaran\n <code>SEEKUT</code></b>"
+     ]
+     msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
      await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -207,7 +207,7 @@ async def _(client, callback_query):
                         InlineKeyboardButton("BCA", callback_data="payment payment"),
                     ],
                 ]
-            msg = "<b>Payment Pembayaran\n <code>SEEKUT</code></b>"
+            msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
             await client.answer_callback_query(
         callback_query.id,
         cache_time=0,
