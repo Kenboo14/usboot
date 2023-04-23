@@ -167,24 +167,24 @@ async def _(client, inline_query):
     button = [
         [
             InlineKeyboardButton("DANA", callback_data="payment paymont"),
+        ],
+    msg = ""
+    await client.answer_inline_query(
+    inline_query.id,
+    text="Hello",
+    show_alert=True
+    ),
+        [
             InlineKeyboardButton("BCA", callback_data="payment payment"),
         ],
-    ]
-
-    msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+    msg = ""
     await client.answer_inline_query(
-        inline_query.id,
-        cache_time=0,
-        results=[
-            (
-                InlineQueryResultArticle(
-                    title="Help Menu!",
-                    reply_markup=InlineKeyboardMarkup(button),
-                    input_message_content=InputTextMessageContent(msg),
-                )
-            )
-        ],
+    inline_query.id,
+    text="anbu",
+    show_alert=True
     )
+    ]
+  
 
 @bot.on_callback_query(filters.regex("^payment"))
 async def _(client, callback_query):
@@ -211,10 +211,8 @@ async def _(client, callback_query):
                 ]
             msg = "<b>Payment Pembayaran</b>"
             await client.answer_callback_query(
-    callback_query.id,
-    text="Hello",
-    text="Anbu",
-    show_alert=True
+        callback_query.id,
+        cache_time=0,
 )
 
 @ubot.on_message(filters.command("delnote", PREFIXES) & filters.me)
