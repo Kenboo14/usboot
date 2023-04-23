@@ -1,4 +1,4 @@
-print("Install id.py")
+print("Install vctools.py")
 from asyncio import sleep
 from contextlib import suppress
 from random import randint
@@ -34,7 +34,7 @@ async def get_group_call(
 
 
 @ubot.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
-async def opengc(client: Client, message: Message):
+async def opengc(client, message):
     flags = " ".join(message.command[1:])
     Man = await edit_or_reply(message, "`Processing . . .`")
     vctitle = get_arg(message)
@@ -65,7 +65,7 @@ async def opengc(client: Client, message: Message):
         await Man.edit(f"**INFO:** `{e}`")
 
 @ubot.on_message(filters.command(["stopvc"], PREFIXES) & filters.me)
-async def end_vc_(client: Client, message: Message):
+async def end_vc_(client, message):
     """End group call"""
     chat_id = message.chat.id
     if not (
@@ -78,7 +78,7 @@ async def end_vc_(client: Client, message: Message):
     await edit_or_reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
 
 @ubot.on_message(filters.command("joinvc", PREFIXES) & filters.me)
-async def joinvc(client: Client, message: Message):
+async def joinvc(client, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
         Man = await message.reply("`Processing...`")
@@ -95,7 +95,7 @@ async def joinvc(client: Client, message: Message):
     await client.group_call.set_is_mute(True)
 
 @ubot.on_message(filters.command("leavevc", PREFIXES) & filters.me)
-async def leavevc(client: Client, message: Message):
+async def leavevc(client, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
         Man = await message.reply("`Processing...`")
