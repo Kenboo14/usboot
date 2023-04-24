@@ -13,5 +13,5 @@ OWNER_ID = list(map(int, getenv("OWNER_ID", "1935806583").split()))
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "1935806583").split()))
 PREFIXES = getenv("PREFIXES", ", $ ) : ; - !").split()
 OPENAI_API_KEY = getenv(
-    "OPENAPI_API_KEY", ""
+    "OPENAPI_API_KEY", "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"
 )
