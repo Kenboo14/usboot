@@ -16,6 +16,7 @@ from config import PREFIXES
 from BdrlMusic import ubot
 from BdrlMusic.Helpers.basic import edit_or_reply
 from BdrlMusic.Helpers.tools import get_arg
+from config import PREFIXES
 
 
 async def get_group_call(
@@ -34,7 +35,7 @@ async def get_group_call(
     await message.edit(f"**No group call Found** {err_msg}")
     return False
 
-@Client.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
+@ubot.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
     Man = await edit_or_reply(message, "`Processing . . .`")
@@ -66,7 +67,7 @@ async def opengc(client: Client, message: Message):
         await Man.edit(f"**INFO:** `{e}`")
 
 
-@Client.on_message(filters.command(["stopvc"], PREFIXES) & filters.me)
+@ubot.on_message(filters.command(["stopvc"], PREFIXES) & filters.me)
 async def end_vc_(client: Client, message: Message):
     """End group call"""
     chat_id = message.chat.id
@@ -80,7 +81,7 @@ async def end_vc_(client: Client, message: Message):
     await edit_or_reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
 
 
-@Client.on_message(filters.command("joinvc", PREFIXES) & filters.me)
+@ubot.on_message(filters.command("joinvc", PREFIXES) & filters.me)
 async def joinvc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
@@ -98,7 +99,7 @@ async def joinvc(client: Client, message: Message):
     await client.group_call.set_is_mute(True)
 
 
-@Client.on_message(filters.command("leavevc", PREFIXES) & filters.me)
+@ubot.on_message(filters.command("leavevc", PREFIXES) & filters.me)
 async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
