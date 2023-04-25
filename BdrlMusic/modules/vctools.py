@@ -3,19 +3,19 @@ from contextlib import suppress
 from random import randint
 from typing import Optional
 
-from pyrogram import *
 from pyrogram import Client, enums, filters
-
 from pyrogram.raw.functions.channels import GetFullChannel
 from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
 from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram.types import Message
 
+
 from config import *
+from config import PREFIXES
 from BdrlMusic import ubot
 from BdrlMusic.Helpers.basic import edit_or_reply
-from config import PREFIXES
+from BdrlMusic.Helpers.tools import get_arg
 
 
 async def get_group_call(
@@ -60,7 +60,7 @@ def get_args(message: Message):
         return message
     return list(filter(lambda x: len(x) > 0, split))
 
-@ubot.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
+@Client.on_message(filters.command(["startvc"], PREFIXES) & filters.me)
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
     Man = await edit_or_reply(message, "`Processing . . .`")
@@ -92,7 +92,7 @@ async def opengc(client: Client, message: Message):
         await Man.edit(f"**INFO:** `{e}`")
 
 
-@ubot.on_message(filters.command(["stopvc"], PREFIXES) & filters.me)
+@Client.on_message(filters.command(["stopvc"], PREFIXES) & filters.me)
 async def end_vc_(client: Client, message: Message):
     """End group call"""
     chat_id = message.chat.id
@@ -106,7 +106,7 @@ async def end_vc_(client: Client, message: Message):
     await edit_or_reply(message, f"Ended group call in **Chat ID** : `{chat_id}`")
 
 
-@ubot.on_message(filters.command("joinvc", PREFIXES) & filters.me)
+@Client.on_message(filters.command("joinvc", PREFIXES) & filters.me)
 async def joinvc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
@@ -124,7 +124,7 @@ async def joinvc(client: Client, message: Message):
     await client.group_call.set_is_mute(True)
 
 
-@ubot.on_message(filters.command("leavevc", PREFIXES) & filters.me)
+@Client.on_message(filters.command("leavevc", PREFIXES) & filters.me)
 async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
