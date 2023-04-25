@@ -13,6 +13,7 @@ from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram.types import Message
 
 from config import *
+from BdrlMusic import ubot
 from BdrlMusic.Helpers.basic import edit_or_reply
 from config import PREFIXES
 
