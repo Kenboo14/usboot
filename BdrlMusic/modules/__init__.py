@@ -1,6 +1,10 @@
 from glob import glob
 from os.path import basename, dirname, isfile
 
+from config import *
+from BdrlMusic import *
+from BdrlMusic.Helpers import *
+from BdrlMusic.utils import *
 
 def loadModule():
     mod_paths = glob(f"{dirname(__file__)}/*.py")
