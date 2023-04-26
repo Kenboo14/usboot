@@ -43,12 +43,6 @@ def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
 
 
-if (
-    not STRING_SESSION
-):
-    LOGGER(__name__).error("No String Session Found! Exiting!")
-    sys.exit()
-
 if not API_ID:
     LOGGER(__name__).error("No API_ID Found! Exiting!")
     sys.exit()
