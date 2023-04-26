@@ -1,6 +1,11 @@
 print("Install gcast.py")
 import asyncio
 
+import dotenv
+from pyrogram import enums, filters
+from requests import get
+
+from config import BLACKLIST_GCAST
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.errors import BadRequest
@@ -18,8 +23,19 @@ async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     )
     return await xyz(*args, **kwargs)
 
+while 0 < 6:
+    _GCAST_BLACKLIST = get(
+        "https://raw.githubusercontent.com/Kenboo14/Reforestation/master/blacklistgcast.json"
+    )
+    if _GCAST_BLACKLIST.status_code != 200:
+        if 0 != 5:
+            continue
+        GCAST_BLACKLIST = [-1001872496207, -1001741405741, -1001675452200]
+        break
+    GCAST_BLACKLIST = _GCAST_BLACKLIST.json()
+    break
 
-BLACKLIST_CHAT = [-1001459812644, -1001692751821, -1001813669338]
+del _GCAST_BLACKLIST
 
 
 __MODULE__ = "GCAST"
@@ -33,6 +49,18 @@ Perintah:
          <code>{PREFIXES[0]}gcast</code> [text/reply to text/media]
 Penjelasan:
            Untuk mengirim pesan ke semua group 
+Perintah:
+         <code>{PREFIXES[0]}blchat</code> [text/reply to text/media]
+Penjelasan:
+           Untuk melihat list blacklist group 
+Perintah:
+         <code>{PREFIXES[0]}addblacklist</code> [text/reply to text/media]
+Penjelasan:
+           Untuk memberi penegcualian fitur gikes ke semua group 
+Perintah:
+         <code>{PREFIXES[0]}delblacklist</code> [text/reply to text/media]
+Penjelasan:
+           Untuk menghapus ditur addblacklist ke group yang sudah masuk blacklist gikes 
 """
 
 
@@ -100,6 +128,73 @@ async def _(client, message: Message):
                     failed += 1
                     await asyncio.sleep(3)
     await msg.edit(f"✅ Berhasil Terkirim: {sent} \n❌ Gagal Terkirim: {failed}")
+
+
+
+@ubot.on_message(filters.me & filters.command("blchat", PREFIXES))
+async def _(client, message: Message):
+    blacklistgc = "True" if BLACKLIST_GCAST else "False"
+    list = BLACKLIST_GCAST.replace(" ", "\n» ")
+    if blacklistgc == "True":
+        await edit_or_reply(
+            message,
+            f"🔮 **Blacklist GCAST:** `Enabled`\n\n📚 **Blacklist Group:**\n» {list}\n\nKetik `{PREFIXES}addblacklist` di grup yang ingin anda tambahkan ke daftar blacklist gcast.",
+        )
+    else:
+        await edit_or_reply(message, "🔮 **Blacklist GCAST:** `Disabled`")
+
+
+@ubot.on_message(filters.me & filters.command("addblacklist", PREFIXES))
+async def _(client, message: Message):
+     xxnx = await edit_or_reply(message, "`Processing...`")
+    if HAPP is None:
+        return await xxnx.edit(
+            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
+        )
+    blgc = f"{BLACKLIST_GCAST} {message.chat.id}"
+    blacklistgrup = (
+        blgc.replace("{", "")
+        .replace("}", "")
+        .replace(",", "")
+        .replace("[", "")
+        .replace("]", "")
+        .replace("set() ", "")
+    )
+    await xxnx.edit(
+        f"**Berhasil Menambahkan** `{message.chat.id}` **ke daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+    )
+    if await in_heroku():
+        heroku_var = HAPP.config()
+        heroku_var["BLACKLIST_GCAST"] = blacklistgrup
+    else:
+        path = dotenv.find_dotenv("config.env")
+        dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
+    restart()
+
+
+
+@ubot.on_message(filters.me & filters.command("delblacklist", PREFIXES))
+async def _(client, message: Message):
+    xxnx = await edit_or_reply(message, "`Processing...`")
+    if HAPP is None:
+        return await xxnx.edit(
+            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
+        )
+    gett = str(message.chat.id)
+    if gett in blchat:
+        blacklistgrup = blchat.replace(gett, "")
+        await xxx.edit(
+            f"**Berhasil Menghapus** `{message.chat.id}` **dari daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+        )
+        if await in_heroku():
+            heroku_var = HAPP.config()
+            heroku_var["BLACKLIST_GCAST"] = blacklistgrup
+        else:
+            path = dotenv.find_dotenv("config.env")
+            dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
+        restart()
+    else:
+        await xxnx.edit("**Grup ini tidak ada dalam daftar blacklist gcast.**")
 
 
 @bot.on_message(filters.user(OWNER_ID) & filters.command("send"))
