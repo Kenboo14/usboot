@@ -8,6 +8,7 @@ from typing import Callable
 from typing import Any, Dict
 
 from logging.handlers import RotatingFileHandler
+from pyrogram.enums import ParseMode
 from aiohttp import ClientSession
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
