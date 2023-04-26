@@ -123,9 +123,3 @@ ubot = Ubot(
     session_string=SESSION_STRING,
     plugins=dict(root="BdrlMusic/modules"),
 )
-
-bots = [bot for bot in [ubot] if bot]
-
-for bot in bots:
-    if not hasattr(bot, "group_call"):
-        setattr(bot, "group_call", GroupCallFactory(bot).get_group_call())
