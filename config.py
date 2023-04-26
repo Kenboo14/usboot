@@ -14,6 +14,7 @@ BOT_TOKEN = getenv("BOT_TOKEN", "")
 SESSION_STRING = getenv("SESSION_STRING", "")
 MONGO_URL = getenv("MONGO_URL", "")
 OWNER_ID = list(map(int, getenv("OWNER_ID", "").split()))
+HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 SUDO_USERS = list(map(int, getenv("SUDO_USERS", "").split()))
 PREFIXES = getenv("PREFIXES", ", $ ) : ; - !").split()
 OPENAI_API_KEY = getenv(
