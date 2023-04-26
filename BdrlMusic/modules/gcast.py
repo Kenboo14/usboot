@@ -2,7 +2,7 @@ print("Install gcast.py")
 import asyncio
 
 import dotenv
-from pyrogram import enums, filters
+from pyrogram import Client, enums, filters
 from requests import get
 
 from config import BLACKLIST_GCAST
@@ -11,34 +11,12 @@ from pyrogram.enums import ChatType
 from pyrogram.errors import BadRequest
 from pyrogram.types import Message
 
-import heroku3
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError
-
+from BdrlMusic.Helpers.misc import HAPP, in_heroku
 from BdrlMusic.Helpers.basic import edit_or_reply
 from BdrlMusic.Helpers.tools import get_arg
 from BdrlMusic import bot, ubot
 from config import *
 
-HAPP = None
-
-def heroku():
-    global HAPP
-    if is_heroku:
-        if HEROKU_API_KEY and HEROKU_APP_NAME:
-            try:
-                Heroku = heroku3.from_key(HEROKU_API_KEY)
-                HAPP = Heroku.app(HEROKU_APP_NAME)
-                LOGGER("BdrlMusic").info(f"Heroku App Configured")
-            except BaseException as e:
-                LOGGER("Heroku").error(e)
-                LOGGER("Heroku").info(
-                    f"Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
-                )
-
-
-async def in_heroku():
-    return "heroku" in socket.getfqdn()
 
 while 0 < 6:
     _GCAST_BLACKLIST = get(
