@@ -139,7 +139,7 @@ async def _(client, message: Message):
 
 
 @Client.on_message(filters.me & filters.command("addblacklist", PREFIXES))
-async def addblacklist(client, message: Message):
+async def _(client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
         return await xxnx.edit(
