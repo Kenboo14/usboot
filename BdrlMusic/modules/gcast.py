@@ -2,7 +2,7 @@ print("Install gcast.py")
 import asyncio
 
 import dotenv
-from pyrogram import Client, enums, filters
+from pyrogram import enums, filters
 from requests import get
 
 from config import BLACKLIST_GCAST
