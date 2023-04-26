@@ -11,17 +11,11 @@ from pyrogram.enums import ChatType
 from pyrogram.errors import BadRequest
 from pyrogram.types import Message
 
+from BdrlMusic.Helpers.misc import HAPP
+from BdrlMusic.Helpers.basic import edit_or_reply
 from BdrlMusic import bot, ubot
 from config import *
 
-
-async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
-    xyz = (
-        message.edit_text
-        if bool(message.from_user and message.from_user.is_self or message.outgoing)
-        else (message.reply_to_message or message).reply_text
-    )
-    return await xyz(*args, **kwargs)
 
 while 0 < 6:
     _GCAST_BLACKLIST = get(
@@ -134,7 +128,7 @@ async def _(client, message: Message):
 @ubot.on_message(filters.me & filters.command("blchat", PREFIXES))
 async def _(client, message: Message):
     blacklistgc = "True" if BLACKLIST_GCAST else "False"
-    list = BLACKLIST_GCAST.replace(" ", "\n» ")
+    list = BLACKLIST_GCAST.replace(" ", " \n» ")
     if blacklistgc == "True":
         await edit_or_reply(
             message,
