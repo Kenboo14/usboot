@@ -2,7 +2,7 @@ print("Install gcast.py")
 import asyncio
 
 import dotenv
-from pyrogram import enums, filters
+from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from pyrogram.errors import BadRequest
 from requests import get
