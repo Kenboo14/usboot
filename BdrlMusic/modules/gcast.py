@@ -138,7 +138,7 @@ async def _(client, message: Message):
         await edit_or_reply(message, "🔮 **Blacklist GCAST:** `Disabled`")
 
 @Client.on_message(filters.command("addblacklist", PREFIXES) & filters.me)
-async def addblacklist(client: Client, message: Message):
+async def addblacklist(client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
         return await xxnx.edit(
