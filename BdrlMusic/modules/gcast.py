@@ -146,7 +146,7 @@ async def _(client, message: Message):
 
 @ubot.on_message(filters.me & filters.command("addblacklist", PREFIXES))
 async def _(client, message: Message):
-     xxnx = await edit_or_reply(message, "`Processing...`")
+    xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
         return await xxnx.edit(
             "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
