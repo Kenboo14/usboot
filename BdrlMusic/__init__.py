@@ -13,7 +13,6 @@ from pyrogram import Client
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
 from pytgcalls import PyTgCalls
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from pyromod import listen
 from rich.logging import RichHandler
 from pytgcalls import GroupCallFactory
