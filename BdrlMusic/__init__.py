@@ -15,7 +15,7 @@ from pyrogram.handlers import MessageHandler
 from pytgcalls import PyTgCalls
 from pyromod import listen
 from rich.logging import RichHandler
-from pytgcalls import GroupCallFactory
+from pytgcalls import *
 
 from config import *
 
