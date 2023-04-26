@@ -10,7 +10,6 @@ from typing import Any, Dict
 from logging.handlers import RotatingFileHandler
 from aiohttp import ClientSession
 from pyrogram import Client
-from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
 from pytgcalls import PyTgCalls
 from pyromod import listen
