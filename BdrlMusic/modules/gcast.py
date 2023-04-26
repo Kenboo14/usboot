@@ -11,11 +11,12 @@ from pyrogram.enums import ChatType
 from pyrogram.errors import BadRequest
 from pyrogram.types import Message
 
-from BdrlMusic.Helpers.misc import HAPP
 from BdrlMusic.Helpers.basic import edit_or_reply
+from BdrlMusic.Helpers.tools import get_arg
 from BdrlMusic import bot, ubot
 from config import *
 
+HAPP = None
 
 while 0 < 6:
     _GCAST_BLACKLIST = get(
