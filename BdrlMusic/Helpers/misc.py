@@ -8,7 +8,6 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
 from config import *
-from BdrlMusic import LOGGER
 
 HAPP = None
 
