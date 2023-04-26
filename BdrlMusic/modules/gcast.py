@@ -3,13 +3,11 @@ import asyncio
 
 import dotenv
 from pyrogram import enums, filters
+from pyrogram.types import Message
+from pyrogram.errors import BadRequest
 from requests import get
 
 from config import BLACKLIST_GCAST
-from pyrogram import filters
-from pyrogram.enums import ChatType
-from pyrogram.errors import BadRequest
-from pyrogram.types import Message
 
 from BdrlMusic.Helpers.misc import HAPP, in_heroku
 from BdrlMusic.Helpers.basic import edit_or_reply
