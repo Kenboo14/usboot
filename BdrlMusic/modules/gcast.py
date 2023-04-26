@@ -15,6 +15,7 @@ from BdrlMusic.Helpers.misc import HAPP, in_heroku
 from BdrlMusic.Helpers.basic import edit_or_reply
 from BdrlMusic.Helpers.tools import get_arg
 from BdrlMusic import bot, ubot
+from config import PREFIXES
 from config import *
 
 
