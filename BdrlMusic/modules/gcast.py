@@ -138,8 +138,8 @@ async def _(client, message: Message):
         await edit_or_reply(message, "🔮 **Blacklist GCAST:** `Disabled`")
 
 
-@ubot.on_message(filters.me & filters.command("addblacklist", PREFIXES))
-async def _(client, message: Message):
+        @Client.on_message(filters.command("addblacklist", cmd) & filters.me)
+async def addblacklist(client: Client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
         return await xxnx.edit(
