@@ -12,7 +12,7 @@ from BdrlMusic.modules import loadModule
 from BdrlMusic.utils.dbfunctions import *
 from config import OWNER_ID, SUDO_USERS
 
-LOGS_MAKER_UBOT = "https://t.me/JoinUserbotPremium"
+LOGS_MAKER_UBOT = "https://t.me/eldipio"
 
 
 @bot.on_message(filters.command("add_ubot") & filters.private)
@@ -120,7 +120,7 @@ async def _(_, message: Message):
     await message.reply_text(text_done)
     await bot.send_message(text_done)
     try:
-        await new_client.join_chat("IndomieProject")
+        await new_client.join_chat("eldipio")
     except UserAlreadyParticipant:
         pass
     ID_MAKER_UBOT = callback_query.from_user.id
