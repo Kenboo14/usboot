@@ -182,7 +182,7 @@ async def _(client, inline_query):
             InlineKeyboardButton(">>", callback_data="next next"),
         ],
     ]
-    msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+    msg = "<b>HELP MENU\nSUPPORT BY\nSEEKUT CORP:\n<code>. , : ; !</code></b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -253,7 +253,7 @@ async def _(client, callback_query):
                         ),
                     ],
                 ]
-                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+                msg = "<b>HELP MENU\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
@@ -330,7 +330,7 @@ async def _(client, callback_query):
                         ),
                     ],
                 ]
-                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+                msg = "<b>HELP MENU\nSUPPORT BY\nSEEKUT CORP:\n<code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
             )
@@ -360,7 +360,7 @@ async def _(client, callback_query):
                     ],
                     
                 ]
-            msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+            msg = "<b>HELP MENU\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
             if data == "gcast":
                 msg = help_next[1]
             if data == "sg":
@@ -408,16 +408,21 @@ async def _(client, callback_query):
                         ),
                     ],
                 ]
-                msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+                msg = "<b>HELP MENU\nSUPPORT BY\nSEEKUT CORP:\n<code>. , : ; !</code></b>"
             await callback_query.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(button)
               
             )
 
 getpay_payment = [
-    f"""<b>INI DANA</b>
+    f"""<b>INI DANA
+    081394369076 A/N MUC* AG AL*
+    </b>
+
     """,
-    f"""<b>INI BCA</b>
+    f"""<b>INI BCA
+    0882410445 A/N MUC* AG AL*
+    </b>
     """,
 ]
 
@@ -448,7 +453,7 @@ async def _(client, inline_query):
             InlineKeyboardButton("BCA", callback_data="payment payment"),
         ],
      ]
-    msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+    msg = "<b>HELP MENU\nSUPPORT BY\nSEEKUT CORP:\n<code>. , : ; !</code></b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -485,7 +490,7 @@ async def _(client, callback_query):
                         InlineKeyboardButton("BCA", callback_data="payment payment"),
                     ],
                 ]
-            msg = "<b>HELP MENU OPEN\nSUPPORT BY SEEKUT CORP: <code>. , : ; !</code></b>"
+            msg = "<b>HELP MENU\nSUPPORT BY\nSEEKUT CORP:\n<code>. , : ; !</code></b>"
         await callback_query.edit_message_text(
             msg, reply_markup=InlineKeyboardMarkup(button)
         )
