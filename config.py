@@ -12,7 +12,7 @@ if not BLACKLIST_CHAT:
 BLACKLIST_GCAST = {int(x) for x in getenv("BLACKLIST_GCAST", "-1001675452200").split()}
 BOT_TOKEN = getenv("BOT_TOKEN", "6263702391:AAGXOIwMEN-I3aa9PBtvIQcli78Zer9oFEo")
 SESSION_STRING = getenv("SESSION_STRING", "BQAhIHQAqJ7fKAzTTMv6Tx_yD-JvRMvizTj7OQZeCd528GCqhbZRjFuOatGfiPgKwFOIyFjIyh6CTwSiYwQH6dmwIX545JrhQdRABuJx5Irwn1x6cysF8-0uWLPJMxmVNa0gXN6qn4ke-TiWi8tXcv7-qfOCbMQd3rH9781Syg2tcT-oqSLgpEmUxdxlRO4tLAfiFBCYROk3yr7XtTyDn1RWwBYBp2QobYH7ODt89on_9ExuHOaIY-ZzGcK9aTb76ZLuh-eYmFpZPPSonzOqI5_ggSvlXJPE-91AQluN3QEh5ro4eFKjklFWJYnW5PkTkgsmgLcQj7E3gRmKYWqFgl_W-TlzKwAAAABzYhB3AA")
-MONGO_URL = getenv("MONGO_URL", "mongodb+srv://adob:adob@cluster0.0kjnbwd.mongodb.net/?retryWrites=true&w=majority")
+MONGO_URL = getenv("MONGO_URL", "mongodb+srv://met:met@cluster0.zrjdoul.mongodb.net/?retryWrites=true&w=majority")
 OWNER_ID = list(map(int, getenv("OWNER_ID", "1935806583").split()))
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", "")
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", "")
